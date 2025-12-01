@@ -1,0 +1,206 @@
+{
+  "remedies": [
+    {
+      "id": 1,
+      "name": "Ginger Tea for Nausea",
+      "category": "digestion",
+      "ingredients": ["Fresh ginger root (1 inch)", "Hot water (1 cup)", "Honey (optional)", "Lemon slice (optional)"],
+      "instructions": "Peel and thinly slice fresh ginger. Place in a cup and pour boiling water over it. Let steep for 10-15 minutes. Strain and add honey or lemon to taste. Drink slowly while warm.",
+      "benefits": ["Relieves nausea and motion sickness", "Aids digestion", "Reduces bloating", "Anti-inflammatory properties"]
+    },
+    {
+      "id": 2,
+      "name": "Chamomile Tea for Sleep",
+      "category": "sleep",
+      "ingredients": ["Dried chamomile flowers (2 tsp)", "Hot water (1 cup)", "Honey (optional)"],
+      "instructions": "Place chamomile flowers in a tea infuser or directly in a cup. Pour boiling water over the flowers and steep for 5-10 minutes. Strain if needed, add honey if desired. Drink 30-45 minutes before bedtime.",
+      "benefits": ["Promotes relaxation", "Improves sleep quality", "Reduces anxiety", "Gentle and safe for regular use"]
+    },
+    {
+      "id": 3,
+      "name": "Peppermint Oil for Headaches",
+      "category": "headaches",
+      "ingredients": ["Peppermint essential oil", "Carrier oil (coconut or olive)", "Cool cloth (optional)"],
+      "instructions": "Mix 2-3 drops of peppermint oil with 1 teaspoon of carrier oil. Gently massage onto temples and the back of your neck. Avoid contact with eyes. You can also apply a cool cloth after application for added relief.",
+      "benefits": ["Natural pain relief", "Cooling sensation", "Reduces tension", "Fast-acting"]
+    },
+    {
+      "id": 4,
+      "name": "Turmeric Golden Milk",
+      "category": "immunity",
+      "ingredients": ["Turmeric powder (1 tsp)", "Warm milk or plant milk (1 cup)", "Black pepper (pinch)", "Honey or maple syrup", "Cinnamon (optional)"],
+      "instructions": "Warm the milk in a small saucepan (don't boil). Add turmeric and black pepper (pepper helps absorption). Stir well and let simmer for 2-3 minutes. Pour into a mug and add sweetener and cinnamon to taste.",
+      "benefits": ["Powerful anti-inflammatory", "Boosts immune system", "Antioxidant-rich", "Supports joint health"]
+    },
+    {
+      "id": 5,
+      "name": "Lavender for Stress Relief",
+      "category": "stress",
+      "ingredients": ["Lavender essential oil", "Diffuser or cotton ball", "Carrier oil for massage (optional)"],
+      "instructions": "Add 5-7 drops of lavender oil to a diffuser and let it run for 30-60 minutes. Alternatively, place 2-3 drops on a cotton ball and inhale deeply. For massage, mix with carrier oil and apply to wrists and temples.",
+      "benefits": ["Reduces anxiety", "Promotes calm", "Improves mood", "Helps with sleep"]
+    },
+    {
+      "id": 6,
+      "name": "Apple Cider Vinegar Tonic",
+      "category": "digestion",
+      "ingredients": ["Apple cider vinegar (1-2 tbsp)", "Water (1 cup)", "Honey (1 tsp)", "Lemon juice (optional)"],
+      "instructions": "Mix apple cider vinegar with water (never drink undiluted). Add honey and lemon juice if desired. Drink before meals or first thing in the morning. Use a straw to protect tooth enamel.",
+      "benefits": ["Aids digestion", "Balances pH levels", "May help blood sugar", "Supports gut health"]
+    },
+    {
+      "id": 7,
+      "name": "Green Tea Energy Boost",
+      "category": "energy",
+      "ingredients": ["Green tea (1 bag or 1 tsp loose leaf)", "Hot water (1 cup)", "Lemon (optional)", "Honey (optional)"],
+      "instructions": "Heat water to about 175°F (80°C) - not boiling. Steep green tea for 2-3 minutes (longer steeping increases caffeine). Remove tea bag or strain. Add lemon and honey if desired.",
+      "benefits": ["Sustained energy without jitters", "Rich in antioxidants", "Improves focus", "Boosts metabolism"]
+    },
+    {
+      "id": 8,
+      "name": "Honey and Lemon for Sore Throat",
+      "category": "immunity",
+      "ingredients": ["Raw honey (1 tbsp)", "Fresh lemon juice (1 tbsp)", "Warm water (1 cup)", "Fresh ginger (optional)"],
+      "instructions": "Warm water until hot but drinkable. Add honey and stir until dissolved. Add lemon juice and optional grated ginger. Sip slowly and let it coat your throat. Repeat 2-3 times daily.",
+      "benefits": ["Soothes sore throat", "Natural antibacterial", "Vitamin C boost", "Breaks up mucus"]
+    },
+    {
+      "id": 9,
+      "name": "Valerian Root for Deep Sleep",
+      "category": "sleep",
+      "ingredients": ["Valerian root tea or capsule", "Hot water (for tea)", "Honey (optional)"],
+      "instructions": "For tea: Steep 1 tsp dried valerian root in hot water for 10-15 minutes. Strain and add honey. For capsules: Follow package directions. Take 30-60 minutes before bed. Start with lower doses.",
+      "benefits": ["Promotes deep sleep", "Reduces time to fall asleep", "Natural sedative", "Non-habit forming"]
+    },
+    {
+      "id": 10,
+      "name": "Cold Compress for Migraines",
+      "category": "headaches",
+      "ingredients": ["Ice cubes or frozen vegetables", "Clean cloth or towel", "Quiet dark room"],
+      "instructions": "Wrap ice or frozen items in a cloth (never apply ice directly to skin). Lie down in a quiet, dark room. Apply the cold compress to your forehead, temples, or back of neck for 15-20 minutes. Rest with eyes closed.",
+      "benefits": ["Reduces inflammation", "Numbs pain", "Constricts blood vessels", "No side effects"]
+    },
+    {
+      "id": 11,
+      "name": "Lemon Balm Tea for Anxiety",
+      "category": "stress",
+      "ingredients": ["Fresh or dried lemon balm leaves (2 tbsp)", "Hot water (1 cup)", "Honey (optional)"],
+      "instructions": "Place lemon balm leaves in a cup. Pour boiling water over them and cover. Steep for 10-15 minutes to extract full benefits. Strain and add honey if desired. Drink 2-3 cups daily when stressed.",
+      "benefits": ["Calms nervous system", "Reduces anxiety", "Improves mood", "Aids cognitive function"]
+    },
+    {
+      "id": 12,
+      "name": "Ginger Shot for Immunity",
+      "category": "immunity",
+      "ingredients": ["Fresh ginger (2 inches)", "Lemon juice (1/2 lemon)", "Cayenne pepper (pinch)", "Raw honey (1 tsp)"],
+      "instructions": "Juice or blend the ginger with a little water, then strain. Mix with lemon juice, cayenne, and honey. Take as a shot (1-2 oz). Can be refrigerated for up to a week. Take daily during cold season.",
+      "benefits": ["Immune system boost", "Anti-inflammatory", "Warming effect", "Fights infections"]
+    },
+    {
+      "id": 13,
+      "name": "Epsom Salt Bath for Muscle Pain",
+      "category": "energy",
+      "ingredients": ["Epsom salt (2 cups)", "Warm bath water", "Essential oils (optional)", "Baking soda (optional)"],
+      "instructions": "Fill bathtub with warm water (not too hot). Add Epsom salt and stir until dissolved. Add a few drops of lavender or eucalyptus oil if desired. Soak for 15-20 minutes. Rinse off and stay hydrated.",
+      "benefits": ["Relieves muscle soreness", "Reduces inflammation", "Promotes relaxation", "Replenishes magnesium"]
+    },
+    {
+      "id": 14,
+      "name": "Fennel Seeds for Bloating",
+      "category": "digestion",
+      "ingredients": ["Fennel seeds (1 tsp)", "Hot water (1 cup)", "Honey (optional)"],
+      "instructions": "Lightly crush fennel seeds to release oils. Place in a cup and pour boiling water over them. Steep for 10 minutes covered. Strain and drink after meals. You can also chew whole seeds directly after eating.",
+      "benefits": ["Reduces bloating", "Relieves gas", "Aids digestion", "Pleasant taste"]
+    },
+    {
+      "id": 15,
+      "name": "Eucalyptus Steam for Congestion",
+      "category": "immunity",
+      "ingredients": ["Eucalyptus essential oil (5-10 drops)", "Bowl of hot steaming water", "Towel"],
+      "instructions": "Boil water and pour into a large bowl. Add eucalyptus oil. Lean over the bowl with a towel draped over your head to trap steam. Breathe deeply for 5-10 minutes. Keep eyes closed. Repeat 2-3 times daily.",
+      "benefits": ["Clears nasal passages", "Relieves sinus pressure", "Natural decongestant", "Antimicrobial properties"]
+    },
+    {
+      "id": 16,
+      "name": "Magnesium for Tension Headaches",
+      "category": "headaches",
+      "ingredients": ["Magnesium supplement (200-400mg)", "Magnesium-rich foods", "Water"],
+      "instructions": "Take magnesium supplement with food to prevent stomach upset. Alternatively, increase magnesium-rich foods: dark chocolate, avocados, nuts, leafy greens, bananas. Stay well hydrated. Consistency is key.",
+      "benefits": ["Relaxes muscles", "Reduces headache frequency", "Calms nervous system", "Improves sleep"]
+    },
+    {
+      "id": 17,
+      "name": "Ashwagandha for Energy & Stress",
+      "category": "energy",
+      "ingredients": ["Ashwagandha powder (1/4 - 1/2 tsp)", "Warm milk or water", "Honey", "Cinnamon (optional)"],
+      "instructions": "Mix ashwagandha powder into warm milk or water. Add honey and cinnamon to taste. Best taken in the evening as it also promotes sleep. Start with a lower dose and increase gradually. Use consistently for 2-4 weeks.",
+      "benefits": ["Reduces stress hormones", "Increases energy levels", "Improves focus", "Adaptogenic properties"]
+    },
+    {
+      "id": 18,
+      "name": "Aloe Vera for Digestive Health",
+      "category": "digestion",
+      "ingredients": ["Aloe vera juice (2 oz)", "Water or juice to dilute", "Lemon (optional)"],
+      "instructions": "Mix aloe vera juice with water or fruit juice. Drink on an empty stomach in the morning. Start with small amounts (1 oz) and increase gradually. Choose food-grade, inner-leaf aloe vera products.",
+      "benefits": ["Soothes digestive tract", "Supports gut health", "Hydrating", "May help with acid reflux"]
+    },
+    {
+      "id": 19,
+      "name": "Passionflower Tea for Sleep",
+      "category": "sleep",
+      "ingredients": ["Dried passionflower (1-2 tsp)", "Hot water (1 cup)", "Honey (optional)", "Chamomile (optional)"],
+      "instructions": "Place passionflower in a tea infuser. Pour boiling water over it and steep for 10 minutes covered. Strain and add honey if desired. Can be combined with chamomile for enhanced effect. Drink 1 hour before bed.",
+      "benefits": ["Calms racing thoughts", "Induces relaxation", "Non-addictive", "Reduces sleep anxiety"]
+    },
+    {
+      "id": 20,
+      "name": "Deep Breathing Exercise",
+      "category": "stress",
+      "ingredients": ["Quiet space", "Comfortable position", "5-10 minutes of time"],
+      "instructions": "Sit or lie comfortably. Breathe in slowly through your nose for 4 counts. Hold for 4 counts. Exhale slowly through mouth for 6 counts. Repeat for 5-10 minutes. Focus only on your breath. Practice daily.",
+      "benefits": ["Activates relaxation response", "Lowers heart rate", "Reduces cortisol", "Can be done anywhere"]
+    },
+    {
+      "id": 21,
+      "name": "Peppermint Tea for Digestion",
+      "category": "digestion",
+      "ingredients": ["Fresh peppermint leaves or tea bag", "Hot water (1 cup)", "Honey (optional)"],
+      "instructions": "Place fresh peppermint leaves or tea bag in a cup. Pour hot water over and steep for 5-7 minutes. Strain fresh leaves if used. Add honey if desired. Best after meals for digestive support.",
+      "benefits": ["Relieves indigestion", "Reduces nausea", "Eases stomach cramps", "Freshens breath"]
+    },
+    {
+      "id": 22,
+      "name": "Elderberry Syrup for Immunity",
+      "category": "immunity",
+      "ingredients": ["Elderberry syrup (1 tbsp for adults)", "Water or tea (optional)"],
+      "instructions": "Take elderberry syrup directly or mix into water or tea. Adults: 1 tablespoon daily for prevention, or every 2-3 hours when sick. Children: 1 teaspoon daily. Do not give to infants under 1 year.",
+      "benefits": ["Shortens cold duration", "Antiviral properties", "High in antioxidants", "Immune system support"]
+    },
+    {
+      "id": 23,
+      "name": "Caffeine Withdrawal Headache Relief",
+      "category": "headaches",
+      "ingredients": ["Green tea (lower caffeine)", "Plenty of water", "Ginger", "Rest"],
+      "instructions": "Instead of quitting caffeine cold turkey, gradually reduce intake. Drink green tea for a gentler caffeine source. Stay very hydrated. Use ginger tea for headache relief. Get extra rest during withdrawal period.",
+      "benefits": ["Eases withdrawal symptoms", "Gradual adjustment", "Maintains some alertness", "Natural approach"]
+    },
+    {
+      "id": 24,
+      "name": "Matcha for Sustained Energy",
+      "category": "energy",
+      "ingredients": ["Matcha powder (1 tsp)", "Hot water (2 oz)", "Warm milk or water (6 oz)", "Honey (optional)"],
+      "instructions": "Sift matcha powder into a bowl to remove clumps. Add a small amount of hot (not boiling) water. Whisk vigorously in a W motion until frothy. Add warm milk or more water. Sweeten if desired.",
+      "benefits": ["Calm alertness", "Longer-lasting energy", "Rich in L-theanine", "Antioxidant powerhouse"]
+    },
+    {
+      "id": 25,
+      "name": "Progressive Muscle Relaxation",
+      "category": "stress",
+      "ingredients": ["Quiet comfortable space", "10-15 minutes", "Loose comfortable clothing"],
+      "instructions": "Lie down or sit comfortably. Starting with your toes, tense muscles for 5 seconds then release for 30 seconds. Work up through legs, abdomen, chest, arms, and face. Notice the difference between tension and relaxation.",
+      "benefits": ["Releases physical tension", "Reduces anxiety", "Improves body awareness", "Better sleep"]
+    }
+  ]
+}
+
+

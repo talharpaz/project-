@@ -1,0 +1,254 @@
+{
+  "tips": [
+    {
+      "id": 1,
+      "text": "Start your morning with a glass of warm lemon water to gently wake up your digestive system and hydrate your body.",
+      "category": "nutrition"
+    },
+    {
+      "id": 2,
+      "text": "Your sleep environment matters: keep your bedroom cool, dark, and free of electronics for deeper rest.",
+      "category": "sleep"
+    },
+    {
+      "id": 3,
+      "text": "Movement doesn't need to be intense to be beneficial. A gentle 15-minute walk can shift your entire day.",
+      "category": "movement"
+    },
+    {
+      "id": 4,
+      "text": "Take three conscious breaths right now. Notice how even this small pause creates space and calm.",
+      "category": "mind"
+    },
+    {
+      "id": 5,
+      "text": "Eat the rainbow: different colored fruits and vegetables provide different healing nutrients your body needs.",
+      "category": "nutrition"
+    },
+    {
+      "id": 6,
+      "text": "Consistency beats perfection with sleep. Going to bed at the same time each night trains your body for better rest.",
+      "category": "sleep"
+    },
+    {
+      "id": 7,
+      "text": "Stretch for just 5 minutes when you wake up. Your body will thank you with more energy throughout the day.",
+      "category": "movement"
+    },
+    {
+      "id": 8,
+      "text": "What you focus on expands. Choose one thing to be grateful for right now.",
+      "category": "mind"
+    },
+    {
+      "id": 9,
+      "text": "Chew your food slowly and mindfully. Digestion begins in the mouth, and presence enhances nourishment.",
+      "category": "nutrition"
+    },
+    {
+      "id": 10,
+      "text": "Create a wind-down ritual: dim lights, gentle music, or a warm cup of chamomile tea before bed.",
+      "category": "sleep"
+    },
+    {
+      "id": 11,
+      "text": "Take the stairs, walk during phone calls, or stand while working. Small movements add up to big benefits.",
+      "category": "movement"
+    },
+    {
+      "id": 12,
+      "text": "Your thoughts are not facts. Notice them like clouds passing through the sky.",
+      "category": "mind"
+    },
+    {
+      "id": 13,
+      "text": "Hydration affects everything: energy, mood, focus, and digestion. Keep water nearby throughout the day.",
+      "category": "nutrition"
+    },
+    {
+      "id": 14,
+      "text": "Morning sunlight exposure within 30 minutes of waking helps regulate your sleep-wake cycle naturally.",
+      "category": "sleep"
+    },
+    {
+      "id": 15,
+      "text": "Find movement you enjoy. When exercise feels like play, consistency comes naturally.",
+      "category": "movement"
+    },
+    {
+      "id": 16,
+      "text": "Set one boundary today that protects your peace and energy.",
+      "category": "mind"
+    },
+    {
+      "id": 17,
+      "text": "Include protein with each meal to maintain steady energy and reduce cravings.",
+      "category": "nutrition"
+    },
+    {
+      "id": 18,
+      "text": "Avoid screens an hour before bed. The blue light tells your brain it's still daytime.",
+      "category": "sleep"
+    },
+    {
+      "id": 19,
+      "text": "Walking in nature combines the benefits of movement, fresh air, and grounding. Try to get outside today.",
+      "category": "movement"
+    },
+    {
+      "id": 20,
+      "text": "You don't have to believe every thought you think. Choose which ones serve you.",
+      "category": "mind"
+    },
+    {
+      "id": 21,
+      "text": "Fermented foods like yogurt, kimchi, and sauerkraut support gut health, which influences mood and immunity.",
+      "category": "nutrition"
+    },
+    {
+      "id": 22,
+      "text": "A cool bedroom (65-68°F / 18-20°C) promotes deeper, more restorative sleep.",
+      "category": "sleep"
+    },
+    {
+      "id": 23,
+      "text": "Dance like nobody's watching. It's exercise, joy, and stress relief all in one.",
+      "category": "movement"
+    },
+    {
+      "id": 24,
+      "text": "Practice the 4-7-8 breath: Inhale 4 seconds, hold 7, exhale 8. Repeat when feeling anxious.",
+      "category": "mind"
+    },
+    {
+      "id": 25,
+      "text": "Reduce processed foods gradually. Your taste buds will adjust, and whole foods will start tasting better.",
+      "category": "nutrition"
+    },
+    {
+      "id": 26,
+      "text": "Quality matters more than quantity with sleep. Create the conditions for deep, uninterrupted rest.",
+      "category": "sleep"
+    },
+    {
+      "id": 27,
+      "text": "Your body was designed to move. Honor it with daily movement, whatever feels right for you today.",
+      "category": "movement"
+    },
+    {
+      "id": 28,
+      "text": "Connection heals. Reach out to someone you care about today, even just to say hello.",
+      "category": "mind"
+    },
+    {
+      "id": 29,
+      "text": "Eat without distractions sometimes. Notice the colors, textures, and flavors of your food.",
+      "category": "nutrition"
+    },
+    {
+      "id": 30,
+      "text": "If you struggle with sleep, try writing down tomorrow's worries before bed to clear your mind.",
+      "category": "sleep"
+    },
+    {
+      "id": 31,
+      "text": "A 10-minute walk after meals helps regulate blood sugar and aids digestion naturally.",
+      "category": "movement"
+    },
+    {
+      "id": 32,
+      "text": "Progress, not perfection. Small consistent steps create lasting change.",
+      "category": "mind"
+    },
+    {
+      "id": 33,
+      "text": "Green tea provides gentle energy with L-theanine for calm focus, unlike the spike and crash of coffee.",
+      "category": "nutrition"
+    },
+    {
+      "id": 34,
+      "text": "Your bed is for sleep. Training your brain to associate it only with rest improves sleep quality.",
+      "category": "sleep"
+    },
+    {
+      "id": 35,
+      "text": "Stand up and stretch right now. Roll your shoulders, reach your arms up, take a deep breath.",
+      "category": "movement"
+    },
+    {
+      "id": 36,
+      "text": "What would you do today if you fully loved and accepted yourself?",
+      "category": "mind"
+    },
+    {
+      "id": 37,
+      "text": "Omega-3 fatty acids (found in salmon, walnuts, flaxseed) support brain health and reduce inflammation.",
+      "category": "nutrition"
+    },
+    {
+      "id": 38,
+      "text": "Caffeine has a half-life of 5-6 hours. Consider your last cup before 2 PM for better sleep.",
+      "category": "sleep"
+    },
+    {
+      "id": 39,
+      "text": "Your posture affects your mood. Stand tall, shoulders back, and notice how you feel.",
+      "category": "movement"
+    },
+    {
+      "id": 40,
+      "text": "Name your emotion without judgment. 'I notice I'm feeling anxious' creates space between you and the feeling.",
+      "category": "mind"
+    },
+    {
+      "id": 41,
+      "text": "Bitter greens like arugula and dandelion support liver health and natural detoxification.",
+      "category": "nutrition"
+    },
+    {
+      "id": 42,
+      "text": "Try a body scan meditation before sleep: consciously relax each body part from toes to head.",
+      "category": "sleep"
+    },
+    {
+      "id": 43,
+      "text": "Desk work? Set a timer for hourly movement breaks. Even 2 minutes of stretching helps.",
+      "category": "movement"
+    },
+    {
+      "id": 44,
+      "text": "Journaling for just 5 minutes can help process emotions and gain clarity.",
+      "category": "mind"
+    },
+    {
+      "id": 45,
+      "text": "Herbs like ginger, turmeric, and cinnamon have powerful anti-inflammatory properties. Add them to your meals.",
+      "category": "nutrition"
+    },
+    {
+      "id": 46,
+      "text": "Naps can be restorative if kept to 20-30 minutes and taken before 3 PM.",
+      "category": "sleep"
+    },
+    {
+      "id": 47,
+      "text": "Yoga combines movement, breath, and mindfulness. Even 10 minutes can shift your state.",
+      "category": "movement"
+    },
+    {
+      "id": 48,
+      "text": "You are not your mistakes. Every moment is a chance to begin again.",
+      "category": "mind"
+    },
+    {
+      "id": 49,
+      "text": "Listen to your body's hunger and fullness signals. It knows what it needs.",
+      "category": "nutrition"
+    },
+    {
+      "id": 50,
+      "text": "Rest is productive. Taking breaks helps you return to tasks with renewed focus and creativity.",
+      "category": "mind"
+    }
+  ]
+}

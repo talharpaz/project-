@@ -1,0 +1,399 @@
+{
+  "resources": {
+    "nutrition": {
+      "podcasts": [
+        {
+          "name": "The Doctor's Farmacy",
+          "host": "Dr. Mark Hyman",
+          "description": "Functional medicine perspective on food as medicine",
+          "url": "https://podcasts.apple.com/podcast/the-doctors-farmacy-with-mark-hyman-m-d/id1382804627",
+          "spotify": "https://open.spotify.com/show/5DlRyKJevOqOFsNvlOYCmm"
+        },
+        {
+          "name": "Food Heaven",
+          "host": "Wendy & Jess",
+          "description": "Intuitive eating and cultural foods for health",
+          "url": "https://podcasts.apple.com/podcast/food-heaven-podcast/id1048386186",
+          "spotify": "https://open.spotify.com/show/3fWP3e4cXdVq4qQhw3sPVx"
+        },
+        {
+          "name": "Nutrition Facts",
+          "host": "Dr. Michael Greger",
+          "description": "Evidence-based nutrition science made accessible",
+          "url": "https://nutritionfacts.org/audio/",
+          "spotify": "https://open.spotify.com/show/65pPD64y5IHJuqdwj7yoZq"
+        },
+        {
+          "name": "The Mindful Kind",
+          "host": "Rachael Kable",
+          "description": "Mindful eating and holistic wellness approaches",
+          "url": "https://podcasts.apple.com/podcast/the-mindful-kind/id1046774236",
+          "spotify": "https://open.spotify.com/show/0WlJiU8mJePM7e67ZPj3gL"
+        }
+      ],
+      "youtube": [
+        {
+          "channel": "Pick Up Limes",
+          "description": "Registered dietitian sharing plant-based nutrition and mindful eating",
+          "url": "https://www.youtube.com/@PickUpLimes"
+        },
+        {
+          "channel": "NutritionFacts.org",
+          "description": "Latest science on nutrition in short, evidence-based videos",
+          "url": "https://www.youtube.com/@NutritionfactsOrgMD"
+        },
+        {
+          "channel": "Abbey Sharp",
+          "description": "Registered dietitian debunking diet myths and promoting intuitive eating",
+          "url": "https://www.youtube.com/@AbbysKitchen"
+        },
+        {
+          "channel": "Dr. Josh Axe",
+          "description": "Natural remedies and functional nutrition advice",
+          "url": "https://www.youtube.com/@DrJoshAxe"
+        }
+      ]
+    },
+    "sleep": {
+      "podcasts": [
+        {
+          "name": "Sleep With Me",
+          "host": "Drew Ackerman",
+          "description": "Bedtime stories designed to bore you to sleep",
+          "url": "https://podcasts.apple.com/podcast/sleep-with-me/id740929434",
+          "spotify": "https://open.spotify.com/show/5AIqrDP6mZxGGgJq7xsAz6"
+        },
+        {
+          "name": "The Sleep Doctor",
+          "host": "Dr. Michael Breus",
+          "description": "Clinical psychologist specializing in sleep disorders",
+          "url": "https://podcasts.apple.com/podcast/sleep-success/id1484519098",
+          "spotify": "https://open.spotify.com/show/2YzAFMj0mBmSz0iJBtfnVG"
+        },
+        {
+          "name": "Nothing Much Happens",
+          "host": "Kathryn Nicolai",
+          "description": "Calming bedtime stories for adults",
+          "url": "https://podcasts.apple.com/podcast/nothing-much-happens-bedtime-stories-to-help-you-sleep/id1378040733",
+          "spotify": "https://open.spotify.com/show/1CEGAOEXsySVQBPwJ1N05H"
+        }
+      ],
+      "youtube": [
+        {
+          "channel": "Michael Sealey",
+          "description": "Guided sleep meditations and hypnosis for deep rest",
+          "url": "https://www.youtube.com/@MichaelSealey"
+        },
+        {
+          "channel": "The Honest Guys",
+          "description": "Relaxation music and guided meditations",
+          "url": "https://www.youtube.com/@TheHonestGuys"
+        },
+        {
+          "channel": "Jason Stephenson",
+          "description": "Sleep music and guided meditations for insomnia",
+          "url": "https://www.youtube.com/@JasonStephensonMeditation"
+        },
+        {
+          "channel": "Dr. Andrew Huberman",
+          "description": "Neuroscience-based sleep optimization protocols",
+          "url": "https://www.youtube.com/@hubaboratoryClips"
+        }
+      ]
+    },
+    "movement": {
+      "podcasts": [
+        {
+          "name": "The Model Health Show",
+          "host": "Shawn Stevenson",
+          "description": "Fitness, nutrition, and holistic health",
+          "url": "https://podcasts.apple.com/podcast/the-model-health-show/id640246578",
+          "spotify": "https://open.spotify.com/show/4wVip1RwwHPErmty6MjWpR"
+        },
+        {
+          "name": "Feel Better, Live More",
+          "host": "Dr. Rangan Chatterjee",
+          "description": "Simple lifestyle changes for better health",
+          "url": "https://podcasts.apple.com/podcast/feel-better-live-more-with-dr-rangan-chatterjee/id1333552422",
+          "spotify": "https://open.spotify.com/show/3TENiAstwGzUPk7YIWpyX3"
+        },
+        {
+          "name": "Yoga Girl",
+          "host": "Rachel Brathen",
+          "description": "Yoga, movement, and mindful living",
+          "url": "https://podcasts.apple.com/podcast/yoga-girl-conversations-from-the-heart/id1088155943",
+          "spotify": "https://open.spotify.com/show/6qx2ZwZYABCTIJoQYjjxLO"
+        }
+      ],
+      "youtube": [
+        {
+          "channel": "Yoga With Adriene",
+          "description": "Free yoga classes for all levels, mindful movement",
+          "url": "https://www.youtube.com/@yogawithadriene"
+        },
+        {
+          "channel": "MadFit",
+          "description": "Quick, effective home workouts",
+          "url": "https://www.youtube.com/@MadFit"
+        },
+        {
+          "channel": "Blogilates",
+          "description": "Fun, energetic pilates and fitness videos",
+          "url": "https://www.youtube.com/@blogilates"
+        },
+        {
+          "channel": "Move With Nicole",
+          "description": "Pilates and gentle strengthening exercises",
+          "url": "https://www.youtube.com/@MoveWithNicole"
+        }
+      ]
+    },
+    "mind": {
+      "podcasts": [
+        {
+          "name": "Ten Percent Happier",
+          "host": "Dan Harris",
+          "description": "Meditation and mindfulness for skeptics",
+          "url": "https://podcasts.apple.com/podcast/ten-percent-happier-with-dan-harris/id1087147821",
+          "spotify": "https://open.spotify.com/show/1CfW319UkBMVhCXfei8huv"
+        },
+        {
+          "name": "On Purpose",
+          "host": "Jay Shetty",
+          "description": "Wisdom from thought leaders on mental wellbeing",
+          "url": "https://podcasts.apple.com/podcast/on-purpose-with-jay-shetty/id1450994021",
+          "spotify": "https://open.spotify.com/show/5EqqB52m2bsr4k1Ii7sStc"
+        },
+        {
+          "name": "The Happiness Lab",
+          "host": "Dr. Laurie Santos",
+          "description": "Science of happiness from Yale professor",
+          "url": "https://podcasts.apple.com/podcast/the-happiness-lab-with-dr-laurie-santos/id1474245040",
+          "spotify": "https://open.spotify.com/show/3i5TCKhc6GY42pOWkpWveG"
+        },
+        {
+          "name": "Unlocking Us",
+          "host": "Brené Brown",
+          "description": "Conversations about vulnerability and courage",
+          "url": "https://podcasts.apple.com/podcast/unlocking-us-with-bren%C3%A9-brown/id1484-0616",
+          "spotify": "https://open.spotify.com/show/4P86ZzHf7EOlRG7do9LkKZ"
+        }
+      ],
+      "youtube": [
+        {
+          "channel": "Headspace",
+          "description": "Animated guides to meditation and mindfulness",
+          "url": "https://www.youtube.com/@Headspace"
+        },
+        {
+          "channel": "The School of Life",
+          "description": "Animated philosophy for emotional intelligence",
+          "url": "https://www.youtube.com/@theschooloflifetv"
+        },
+        {
+          "channel": "Therapy in a Nutshell",
+          "description": "Licensed therapist sharing mental health tools",
+          "url": "https://www.youtube.com/@TherapyinaNutshell"
+        },
+        {
+          "channel": "HealthyGamerGG",
+          "description": "Harvard psychiatrist on mental health for modern life",
+          "url": "https://www.youtube.com/@HealthyGamerGG"
+        }
+      ]
+    }
+  },
+  "stores": {
+    "global": {
+      "name": "International",
+      "stores": [
+        {
+          "name": "iHerb",
+          "url": "https://www.iherb.com",
+          "description": "Wide selection of supplements and natural products with worldwide shipping",
+          "logo": "🌍"
+        },
+        {
+          "name": "Vitacost",
+          "url": "https://www.vitacost.com",
+          "description": "Natural health products and supplements",
+          "logo": "💊"
+        }
+      ]
+    },
+    "IL": {
+      "name": "Israel",
+      "stores": [
+        {
+          "name": "Altman Health",
+          "url": "https://www.altman-health.co.il",
+          "description": "Israeli natural supplements and vitamins",
+          "logo": "🇮🇱"
+        },
+        {
+          "name": "Bara Herbs",
+          "url": "https://www.bara-herbs.co.il",
+          "description": "Israeli herbal remedies and natural products",
+          "logo": "🌿"
+        },
+        {
+          "name": "Super-Pharm Natural",
+          "url": "https://www.super-pharm.co.il",
+          "description": "Pharmacy chain with natural health section",
+          "logo": "💚"
+        },
+        {
+          "name": "Life Wellness",
+          "url": "https://www.life-wellness.co.il",
+          "description": "Natural health and organic products",
+          "logo": "🌱"
+        },
+        {
+          "name": "iHerb",
+          "url": "https://www.iherb.com",
+          "description": "International shipping to Israel",
+          "logo": "🌍"
+        }
+      ]
+    },
+    "US": {
+      "name": "United States",
+      "stores": [
+        {
+          "name": "iHerb",
+          "url": "https://www.iherb.com",
+          "description": "Supplements and natural products",
+          "logo": "🌿"
+        },
+        {
+          "name": "Thrive Market",
+          "url": "https://www.thrivemarket.com",
+          "description": "Organic and natural products membership",
+          "logo": "🥬"
+        },
+        {
+          "name": "Whole Foods Market",
+          "url": "https://www.wholefoodsmarket.com",
+          "description": "Natural and organic grocery stores",
+          "logo": "🍃"
+        },
+        {
+          "name": "Vitacost",
+          "url": "https://www.vitacost.com",
+          "description": "Natural health products and supplements",
+          "logo": "💊"
+        }
+      ]
+    },
+    "UK": {
+      "name": "United Kingdom",
+      "stores": [
+        {
+          "name": "Holland & Barrett",
+          "url": "https://www.hollandandbarrett.com",
+          "description": "UK's leading health food retailer",
+          "logo": "🇬🇧"
+        },
+        {
+          "name": "Planet Organic",
+          "url": "https://www.planetorganic.com",
+          "description": "Organic supermarket with supplements",
+          "logo": "🌍"
+        },
+        {
+          "name": "Boots",
+          "url": "https://www.boots.com",
+          "description": "Pharmacy with natural health range",
+          "logo": "💊"
+        },
+        {
+          "name": "iHerb",
+          "url": "https://www.iherb.com",
+          "description": "International shipping to UK",
+          "logo": "🌿"
+        }
+      ]
+    },
+    "EU": {
+      "name": "Europe",
+      "stores": [
+        {
+          "name": "iHerb",
+          "url": "https://www.iherb.com",
+          "description": "Ships to most European countries",
+          "logo": "🌍"
+        },
+        {
+          "name": "Naturitas",
+          "url": "https://www.naturitas.es",
+          "description": "European natural products store",
+          "logo": "🇪🇺"
+        },
+        {
+          "name": "Life Extension Europe",
+          "url": "https://www.lifeextensioneurope.com",
+          "description": "Science-based supplements",
+          "logo": "🔬"
+        }
+      ]
+    },
+    "AU": {
+      "name": "Australia",
+      "stores": [
+        {
+          "name": "iHerb",
+          "url": "https://www.iherb.com",
+          "description": "Ships to Australia",
+          "logo": "🌍"
+        },
+        {
+          "name": "Chemist Warehouse",
+          "url": "https://www.chemistwarehouse.com.au",
+          "description": "Australia's largest pharmacy retailer",
+          "logo": "🇦🇺"
+        },
+        {
+          "name": "Go Vita",
+          "url": "https://www.govita.com.au",
+          "description": "Natural health food stores",
+          "logo": "🌿"
+        }
+      ]
+    }
+  },
+  "productCategories": {
+    "sleep": [
+      { "name": "Magnesium Glycinate", "search": "magnesium+glycinate+sleep" },
+      { "name": "Melatonin", "search": "melatonin+natural" },
+      { "name": "Valerian Root", "search": "valerian+root+sleep" },
+      { "name": "Chamomile Tea", "search": "chamomile+tea+organic" },
+      { "name": "Lavender Essential Oil", "search": "lavender+essential+oil" },
+      { "name": "L-Theanine", "search": "l-theanine+calm" }
+    ],
+    "nutrition": [
+      { "name": "Omega-3 Fish Oil", "search": "omega+3+fish+oil" },
+      { "name": "Vitamin D3", "search": "vitamin+d3+supplements" },
+      { "name": "Probiotics", "search": "probiotics+gut+health" },
+      { "name": "B-Complex Vitamins", "search": "b+complex+vitamins" },
+      { "name": "Turmeric Curcumin", "search": "turmeric+curcumin+organic" },
+      { "name": "Green Superfood Powder", "search": "green+superfood+powder" }
+    ],
+    "movement": [
+      { "name": "Yoga Mat", "search": "yoga+mat+eco+friendly" },
+      { "name": "Resistance Bands", "search": "resistance+bands+fitness" },
+      { "name": "Foam Roller", "search": "foam+roller+muscle+recovery" },
+      { "name": "Magnesium Spray", "search": "magnesium+spray+muscle" },
+      { "name": "Protein Powder", "search": "plant+protein+powder+organic" },
+      { "name": "Electrolyte Powder", "search": "electrolyte+powder+natural" }
+    ],
+    "mind": [
+      { "name": "Ashwagandha", "search": "ashwagandha+organic+stress" },
+      { "name": "Rhodiola Rosea", "search": "rhodiola+rosea+adaptogen" },
+      { "name": "Lion's Mane Mushroom", "search": "lions+mane+mushroom+brain" },
+      { "name": "CBD Oil", "search": "cbd+oil+calm" },
+      { "name": "Aromatherapy Diffuser", "search": "essential+oil+diffuser" },
+      { "name": "Meditation Cushion", "search": "meditation+cushion+zafu" }
+    ]
+  }
+}
+

@@ -1,0 +1,50 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f8f0"/>
+      <stop offset="100%" style="stop-color:#e8f5e8"/>
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6bc46b"/>
+      <stop offset="100%" style="stop-color:#5cb85c"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="url(#bgGrad)"/>
+  
+  <!-- Soft glow -->
+  <circle cx="256" cy="230" r="160" fill="#5cb85c" opacity="0.08"/>
+  
+  <!-- Main leaf shape -->
+  <path d="M256 100 C256 100 170 155 170 250 C170 297.5 208.5 336 256 336 C303.5 336 342 297.5 342 250 C342 155 256 100 256 100Z" 
+        fill="url(#leafGrad)" opacity="0.25"/>
+  
+  <!-- Inner leaf -->
+  <path d="M256 135 C256 135 195 175 195 245 C195 278.69 222.31 306 256 306 C289.69 306 317 278.69 317 245 C317 175 256 135 256 135Z" 
+        fill="url(#leafGrad)"/>
+  
+  <!-- Leaf vein - central -->
+  <path d="M256 155 L256 290" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+  
+  <!-- Leaf veins - sides -->
+  <path d="M256 190 L235 210" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  <path d="M256 190 L277 210" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  <path d="M256 225 L230 250" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  <path d="M256 225 L282 250" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  <path d="M256 260 L240 278" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  <path d="M256 260 L272 278" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+  
+  <!-- Stem -->
+  <path d="M256 336 L256 400" stroke="url(#leafGrad)" stroke-width="10" stroke-linecap="round"/>
+  
+  <!-- Small stem leaves -->
+  <ellipse cx="240" cy="375" rx="12" ry="8" fill="url(#leafGrad)" opacity="0.6" transform="rotate(-30 240 375)"/>
+  <ellipse cx="272" cy="375" rx="12" ry="8" fill="url(#leafGrad)" opacity="0.6" transform="rotate(30 272 375)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="170" cy="380" r="6" fill="#5cb85c" opacity="0.3"/>
+  <circle cx="342" cy="380" r="6" fill="#5cb85c" opacity="0.3"/>
+  <circle cx="150" cy="320" r="4" fill="#5cb85c" opacity="0.2"/>
+  <circle cx="362" cy="320" r="4" fill="#5cb85c" opacity="0.2"/>
+</svg>

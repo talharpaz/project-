@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#2d5a4a">
+  <meta name="description" content="Your holistic wellness companion - personalized guidance for nutrition, sleep, movement, and mind">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="NaturalHealth">
+  
+  <title>NaturalHealth - Your Wellness Journey Starts Here</title>
+  
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/icons/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+  <!-- Landing Page -->
+  <div id="landingPage" class="landing-page">
+    <!-- Navigation -->
+    <nav class="landing-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 4C16 4 8 10 8 18C8 22.4183 11.5817 26 16 26C20.4183 26 24 22.4183 24 18C24 10 16 4 16 4Z" fill="currentColor" opacity="0.3"/>
+            <path d="M16 8C16 8 12 12 12 17C12 19.7614 14.2386 22 17 22C19.7614 22 22 19.7614 22 17C22 12 18 8 16 8Z" fill="currentColor"/>
+          </svg>
+          <span>NaturalHealth</span>
+        </div>
+        <div class="nav-actions">
+          <button class="nav-btn nav-btn-ghost" onclick="App.showLogin()">Log In</button>
+          <button class="nav-btn nav-btn-primary" onclick="App.showSignup()">Get Started</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-background">
+        <div class="hero-gradient"></div>
+        <div class="hero-pattern"></div>
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Your journey to<br>
+          <span class="hero-highlight">holistic wellness</span><br>
+          starts here
+        </h1>
+        <p class="hero-subtitle">
+          Personalized guidance for your mind, body, and spirit. 
+          Discover natural solutions, track your progress, and transform your life.
+        </p>
+        <div class="hero-cta">
+          <button class="cta-btn cta-btn-primary" onclick="App.showSignup()">
+            <span>Start Your Journey</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+          <button class="cta-btn cta-btn-secondary" onclick="App.enterAsGuest()">
+            <span>Explore as Guest</span>
+          </button>
+        </div>
+        <p class="hero-note">No credit card required • Free forever</p>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card hero-card-1">
+          <div class="hero-card-icon" style="background: rgba(107, 196, 107, 0.15); color: #6bc46b;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+          </div>
+          <span>Nutrition</span>
+        </div>
+        <div class="hero-card hero-card-2">
+          <div class="hero-card-icon" style="background: rgba(124, 159, 212, 0.15); color: #7c9fd4;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <span>Sleep</span>
+        </div>
+        <div class="hero-card hero-card-3">
+          <div class="hero-card-icon" style="background: rgba(245, 169, 98, 0.15); color: #f5a962;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2"/><path d="M12 7v6M9 20l3-7 3 7M6 12h12"/></svg>
+          </div>
+          <span>Movement</span>
+        </div>
+        <div class="hero-card hero-card-4">
+          <div class="hero-card-icon" style="background: rgba(196, 155, 212, 0.15); color: #c49bd4;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <span>Mind</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="features-container">
+        <div class="features-header">
+          <span class="features-label">Why NaturalHealth?</span>
+          <h2 class="features-title">Everything you need for whole-body wellness</h2>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3>AI-Powered Guidance</h3>
+            <p>Describe how you're feeling and receive personalized, holistic recommendations based on natural medicine principles.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3>Natural Remedies</h3>
+            <p>Discover herbs, foods, and practices from traditional medicine to support your specific health concerns.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <h3>Progress Tracking</h3>
+            <p>Log your habits, track your wellness journey, and see your growth with intuitive charts and calendars.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              </svg>
+            </div>
+            <h3>Daily Journaling</h3>
+            <p>Reflect on your emotions, practice gratitude, and build self-awareness through guided prompts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+      <div class="hiw-container">
+        <div class="hiw-header">
+          <span class="hiw-label">How It Works</span>
+          <h2 class="hiw-title">Three simple steps to better wellness</h2>
+        </div>
+        <div class="hiw-steps">
+          <div class="hiw-step">
+            <div class="hiw-step-number">1</div>
+            <h3>Tell us about yourself</h3>
+            <p>Create your profile and set your wellness goals. What areas do you want to improve?</p>
+          </div>
+          <div class="hiw-step">
+            <div class="hiw-step-number">2</div>
+            <h3>Get personalized guidance</h3>
+            <p>Receive recommendations tailored to your needs across nutrition, sleep, movement, and mind.</p>
+          </div>
+          <div class="hiw-step">
+            <div class="hiw-step-number">3</div>
+            <h3>Track your progress</h3>
+            <p>Log your daily habits, see patterns, and celebrate your wellness wins.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <div class="testimonials-container">
+        <h2 class="testimonials-title">Loved by wellness seekers</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"The AI recommendations are incredibly accurate. I've struggled with sleep for years, and the holistic approach finally helped me understand why."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">S</div>
+              <div class="testimonial-info">
+                <span class="testimonial-name">Sarah M.</span>
+                <span class="testimonial-detail">Improved sleep quality</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"I love that it connects nutrition, movement, and mental health together. It's not just about one thing—it's about the whole picture."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">D</div>
+              <div class="testimonial-info">
+                <span class="testimonial-name">David R.</span>
+                <span class="testimonial-detail">More energy & focus</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"The journaling prompts have become my daily ritual. It's helped me become more mindful and grateful in my everyday life."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">M</div>
+              <div class="testimonial-info">
+                <span class="testimonial-name">Maya L.</span>
+                <span class="testimonial-detail">Better mental clarity</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="final-cta">
+      <div class="final-cta-container">
+        <h2>Ready to transform your wellness?</h2>
+        <p>Join thousands of people discovering the power of holistic health.</p>
+        <div class="final-cta-buttons">
+          <button class="cta-btn cta-btn-primary cta-btn-large" onclick="App.showSignup()">
+            Create Free Account
+          </button>
+          <button class="cta-btn cta-btn-outline" onclick="App.enterAsGuest()">
+            Continue as Guest
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 4C16 4 8 10 8 18C8 22.4183 11.5817 26 16 26C20.4183 26 24 22.4183 24 18C24 10 16 4 16 4Z" fill="currentColor" opacity="0.3"/>
+            <path d="M16 8C16 8 12 12 12 17C12 19.7614 14.2386 22 17 22C19.7614 22 22 19.7614 22 17C22 12 18 8 16 8Z" fill="currentColor"/>
+          </svg>
+          <span>NaturalHealth</span>
+        </div>
+        <p class="footer-text">Your holistic wellness companion. Built with 💚 for a healthier you.</p>
+        <p class="footer-disclaimer">This app provides general wellness information and is not a substitute for professional medical advice.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Auth Modal -->
+  <div class="auth-modal-overlay" id="authModal">
+    <div class="auth-modal">
+      <button class="auth-modal-close" onclick="App.closeAuthModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+      
+      <!-- Signup Form -->
+      <div class="auth-form" id="signupForm">
+        <div class="auth-header">
+          <h2>Create your account</h2>
+          <p>Start your personalized wellness journey</p>
+        </div>
+        <form onsubmit="App.handleSignup(event)">
+          <div class="form-group">
+            <label for="signupName">Your name</label>
+            <input type="text" id="signupName" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="signupEmail">Email address</label>
+            <input type="email" id="signupEmail" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label>What are your wellness goals? (Select all that apply)</label>
+            <div class="goals-grid">
+              <label class="goal-checkbox">
+                <input type="checkbox" name="goals" value="sleep">
+                <span class="goal-label">Better Sleep</span>
+              </label>
+              <label class="goal-checkbox">
+                <input type="checkbox" name="goals" value="energy">
+                <span class="goal-label">More Energy</span>
+              </label>
+              <label class="goal-checkbox">
+                <input type="checkbox" name="goals" value="stress">
+                <span class="goal-label">Less Stress</span>
+              </label>
+              <label class="goal-checkbox">
+                <input type="checkbox" name="goals" value="nutrition">
+                <span class="goal-label">Eat Healthier</span>
+              </label>
+              <label class="goal-checkbox">
+                <input type="checkbox" name="goals" value="fitness">
+                <span class="goal-label">Get Fit</span>
+              </label>
+              <label class="goal-checkbox">
+                <input type="checkbox" name="goals" value="mindfulness">
+                <span class="goal-label">Mental Clarity</span>
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="auth-submit-btn">Create Account</button>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="#" onclick="App.showLogin(); return false;">Log in</a></p>
+      </div>
+
+      <!-- Login Form -->
+      <div class="auth-form hidden" id="loginForm">
+        <div class="auth-header">
+          <h2>Welcome back</h2>
+          <p>Continue your wellness journey</p>
+        </div>
+        <form onsubmit="App.handleLogin(event)">
+          <div class="form-group">
+            <label for="loginEmail">Email address</label>
+            <input type="email" id="loginEmail" placeholder="you@example.com" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Log In</button>
+        </form>
+        <p class="auth-switch">Don't have an account? <a href="#" onclick="App.showSignup(); return false;">Sign up</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main App (Hidden initially) -->
+  <div id="mainApp" class="main-app hidden">
+    <div class="app-container">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-content">
+          <div class="logo">
+            <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+              <path d="M16 4C16 4 8 10 8 18C8 22.4183 11.5817 26 16 26C20.4183 26 24 22.4183 24 18C24 10 16 4 16 4Z" fill="currentColor" opacity="0.3"/>
+              <path d="M16 8C16 8 12 12 12 17C12 19.7614 14.2386 22 17 22C19.7614 22 22 19.7614 22 17C22 12 18 8 16 8Z" fill="currentColor"/>
+            </svg>
+            <span class="logo-text">NaturalHealth</span>
+          </div>
+          <div class="header-actions">
+            <button class="header-btn" onclick="ResourcesModule.openCountryModal()" aria-label="Select Region">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </button>
+            <button class="header-btn user-menu-btn" id="userMenuBtn" onclick="App.toggleUserMenu()">
+              <span class="user-avatar" id="userAvatar">G</span>
+            </button>
+          </div>
+        </div>
+        <!-- User Dropdown Menu -->
+        <div class="user-menu hidden" id="userMenu">
+          <div class="user-menu-header">
+            <span class="user-menu-name" id="userMenuName">Guest</span>
+            <span class="user-menu-email" id="userMenuEmail">Exploring as guest</span>
+          </div>
+          <div class="user-menu-divider"></div>
+          <button class="user-menu-item" onclick="App.navigateTo('profileView')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            My Profile
+          </button>
+          <button class="user-menu-item" onclick="App.navigateTo('progressView')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            My Progress
+          </button>
+          <div class="user-menu-divider"></div>
+          <button class="user-menu-item user-menu-logout" onclick="App.logout()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+            Log Out
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="app-main" id="appMain">
+        
+        <!-- Dashboard / Home View -->
+        <section class="view active" id="homeView">
+          <!-- Personalized Welcome (for logged-in users) -->
+          <div class="personalized-welcome" id="personalizedWelcome">
+            <div class="welcome-content">
+              <h1 class="welcome-title">Welcome back, <span id="welcomeName">Guest</span>!</h1>
+              <p class="welcome-subtitle" id="welcomeStreak">Let's continue your wellness journey</p>
+            </div>
+            <div class="quick-stats" id="quickStats">
+              <div class="quick-stat">
+                <span class="quick-stat-value" id="statDaysActive">1</span>
+                <span class="quick-stat-label">Days Active</span>
+              </div>
+              <div class="quick-stat">
+                <span class="quick-stat-value" id="statJournalEntries">0</span>
+                <span class="quick-stat-label">Journal Entries</span>
+              </div>
+              <div class="quick-stat">
+                <span class="quick-stat-value" id="statWorkouts">0</span>
+                <span class="quick-stat-label">Workouts</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guest Welcome -->
+          <div class="guest-welcome hidden" id="guestWelcome">
+            <div class="dashboard-greeting">
+              <h1 class="greeting-text" id="greeting">Good morning</h1>
+              <p class="greeting-date" id="currentDate"></p>
+            </div>
+            <div class="guest-upgrade-card">
+              <p>You're exploring as a guest. Create a free account to save your progress and get personalized recommendations.</p>
+              <button class="guest-upgrade-btn" onclick="App.showSignup()">Create Free Account</button>
+            </div>
+          </div>
+
+          <!-- AI Wellness Input -->
+          <div class="wellness-input-section">
+            <div class="wellness-input-header">
+              <h2 class="wellness-input-title">How can I help you today?</h2>
+              <p class="wellness-input-subtitle">Share what's on your mind for personalized holistic guidance</p>
+            </div>
+            <textarea 
+              class="wellness-textarea" 
+              id="wellnessInput" 
+              placeholder="Examples: I'm struggling to fall asleep... / I feel anxious... / My muscles are sore..."
+            ></textarea>
+            <button class="wellness-submit-btn" id="wellnessSubmitBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+              Get Holistic Recommendations
+            </button>
+            
+            <div class="ai-response" id="aiResponse">
+              <div class="ai-response-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                Holistic Wellness Suggestions
+              </div>
+              <div class="ai-response-content" id="aiResponseContent"></div>
+            </div>
+          </div>
+
+          <!-- Daily Wellness Tip -->
+          <div class="daily-tip-card">
+            <div class="daily-tip-header">
+              <span class="daily-tip-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+                Daily Tip
+              </span>
+              <span class="daily-tip-category" id="dailyTipCategory">wellness</span>
+            </div>
+            <p class="daily-tip-text" id="dailyTipText">Loading...</p>
+          </div>
+
+          <!-- Four Pillars -->
+          <div class="pillars-section">
+            <h2 class="pillars-title">Your Wellness Pillars</h2>
+            <div class="pillars-grid">
+              <div class="pillar-card" data-pillar="nutrition" data-view="nutritionView">
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                    <path d="M6 1v3M10 1v3M14 1v3"/>
+                  </svg>
+                </div>
+                <span class="pillar-name">Nutrition</span>
+              </div>
+              <div class="pillar-card" data-pillar="sleep" data-view="sleepView">
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                  </svg>
+                </div>
+                <span class="pillar-name">Sleep</span>
+              </div>
+              <div class="pillar-card" data-pillar="movement" data-view="movementView">
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="5" r="2"/>
+                    <path d="M12 7v6M9 20l3-7 3 7M6 12h12"/>
+                  </svg>
+                </div>
+                <span class="pillar-name">Movement</span>
+              </div>
+              <div class="pillar-card" data-pillar="mind" data-view="mindView">
+                <div class="pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                  </svg>
+                </div>
+                <span class="pillar-name">Mind</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Journal -->
+          <div class="mindset-card">
+            <div class="mindset-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              </svg>
+              <h3>Daily Reflection</h3>
+            </div>
+            <p class="mindset-prompt" id="todayPrompt">"How am I feeling right now?"</p>
+            <button class="mindset-btn" data-view="mindView">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              </svg>
+              Start Journaling
+            </button>
+          </div>
+
+          <!-- Optional Tracking -->
+          <div class="optional-tracking">
+            <button class="tracking-toggle-btn" id="showTrackingBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 20V10M12 20V4M6 20v-6"/>
+              </svg>
+              View Calorie & Movement Tracking
+            </button>
+          </div>
+
+          <div class="tracking-panel" id="trackingPanel">
+            <div class="tracking-panel-header">
+              <h3 class="tracking-panel-title">Today's Tracking</h3>
+              <button class="tracking-close-btn" id="closeTrackingBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+            <div class="calorie-mini-summary">
+              <div class="calorie-mini-stat">
+                <div class="calorie-mini-value" id="consumedCal">0</div>
+                <div class="calorie-mini-label">Consumed</div>
+              </div>
+              <div class="calorie-mini-stat">
+                <div class="calorie-mini-value" id="burnedCal">0</div>
+                <div class="calorie-mini-label">Burned</div>
+              </div>
+              <div class="calorie-mini-stat">
+                <div class="calorie-mini-value" id="netCal">0</div>
+                <div class="calorie-mini-label">Net</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Nutrition View -->
+        <section class="view" id="nutritionView">
+          <button class="back-btn" onclick="App.navigateTo('homeView')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back
+          </button>
+          
+          <div class="pillar-hero" style="border-top: 4px solid var(--color-nutrition);">
+            <div class="pillar-hero-icon" style="background: rgba(107, 196, 107, 0.1); color: var(--color-nutrition);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+              </svg>
+            </div>
+            <h1>Nutrition</h1>
+            <p>Nourish your body with mindful eating</p>
+          </div>
+
+          <div class="resources-section">
+            <h3 class="section-title">Guides & Resources</h3>
+            
+            <div class="resource-card" onclick="App.showResourceDetail('hydration')">
+              <div class="resource-card-header">
+                <div class="resource-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
+                <span class="resource-title">Hydration Guide</span>
+              </div>
+              <p class="resource-description">How proper hydration affects energy, mood, and health.</p>
+            </div>
+            
+            <div class="resource-card" onclick="App.showResourceDetail('mindful-eating')">
+              <div class="resource-card-header">
+                <div class="resource-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+                <span class="resource-title">Mindful Eating</span>
+              </div>
+              <p class="resource-description">Practice presence during meals for better digestion.</p>
+            </div>
+            
+            <div class="resource-card" onclick="App.showResourceDetail('natural-remedies')">
+              <div class="resource-card-header">
+                <div class="resource-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <span class="resource-title">Natural Remedies</span>
+              </div>
+              <p class="resource-description">Healing foods and herbs for common ailments.</p>
+            </div>
+          </div>
+
+          <div id="nutritionResources" class="external-resources-section"></div>
+        </section>
+
+        <!-- Sleep View -->
+        <section class="view" id="sleepView">
+          <button class="back-btn" onclick="App.navigateTo('homeView')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back
+          </button>
+          
+          <div class="pillar-hero" style="border-top: 4px solid var(--color-sleep);">
+            <div class="pillar-hero-icon" style="background: rgba(124, 159, 212, 0.1); color: var(--color-sleep);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            </div>
+            <h1>Sleep</h1>
+            <p>Rest deeply, wake refreshed</p>
+          </div>
+
+          <div class="sleep-tracker-card">
+            <h3 class="section-title" style="text-align: center;">Last Night's Sleep</h3>
+            <div class="sleep-stats">
+              <div class="sleep-stat">
+                <div class="sleep-stat-value" id="sleepHours">--</div>
+                <div class="sleep-stat-label">Hours</div>
+              </div>
+              <div class="sleep-stat">
+                <div class="sleep-stat-value" id="sleepQuality">--</div>
+                <div class="sleep-stat-label">Quality</div>
+              </div>
+              <div class="sleep-stat">
+                <div class="sleep-stat-value" id="sleepTime">--</div>
+                <div class="sleep-stat-label">Bedtime</div>
+              </div>
+            </div>
+            <div class="apple-watch-integration">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="3"/>
+                <path d="M12 18h.01"/>
+              </svg>
+              Connect Apple Watch for automatic tracking
+            </div>
+          </div>
+
+          <div class="resources-section">
+            <h3 class="section-title">Sleep Better</h3>
+            
+            <div class="resource-card" onclick="App.showResourceDetail('sleep-hygiene')">
+              <div class="resource-card-header">
+                <div class="resource-icon" style="background: rgba(124, 159, 212, 0.1); color: var(--color-sleep);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
+                <span class="resource-title">Sleep Hygiene Guide</span>
+              </div>
+              <p class="resource-description">Create the perfect environment for restorative sleep.</p>
+            </div>
+            
+            <div class="resource-card" onclick="App.showResourceDetail('natural-sleep')">
+              <div class="resource-card-header">
+                <div class="resource-icon" style="background: rgba(124, 159, 212, 0.1); color: var(--color-sleep);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <span class="resource-title">Natural Sleep Aids</span>
+              </div>
+              <p class="resource-description">Herbs and practices to help you fall asleep naturally.</p>
+            </div>
+          </div>
+
+          <div id="sleepResources" class="external-resources-section"></div>
+        </section>
+
+        <!-- Movement View -->
+        <section class="view" id="movementView">
+          <button class="back-btn" onclick="App.navigateTo('homeView')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back
+          </button>
+          
+          <div class="pillar-hero" style="border-top: 4px solid var(--color-movement);">
+            <div class="pillar-hero-icon" style="background: rgba(245, 169, 98, 0.1); color: var(--color-movement);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="5" r="2"/>
+                <path d="M12 7v6M9 20l3-7 3 7M6 12h12"/>
+              </svg>
+            </div>
+            <h1>Movement</h1>
+            <p>Move joyfully, feel alive</p>
+          </div>
+
+          <div class="sleep-tracker-card" style="border-top: 3px solid var(--color-movement);">
+            <h3 class="section-title" style="text-align: center; display: flex; align-items: center; justify-content: center; gap: var(--space-sm);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: var(--color-movement);">
+                <circle cx="12" cy="5" r="2"/>
+                <path d="M12 7v6M9 20l3-7 3 7"/>
+              </svg>
+              Daily Steps
+            </h3>
+            <div id="stepTrackerContent"></div>
+          </div>
+
+          <div class="sleep-tracker-card" style="margin-top: var(--space-xl);">
+            <h3 class="section-title" style="text-align: center; display: flex; align-items: center; justify-content: center; gap: var(--space-sm);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; color: var(--color-movement);">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              Workout Calendar
+            </h3>
+            <p style="text-align: center; font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: var(--space-lg);">
+              Tap any day to mark it as a workout day. Track your consistency!
+            </p>
+            <div id="workoutCalendar"></div>
+          </div>
+
+          <div class="resources-section" style="margin-top: var(--space-xl);">
+            <h3 class="section-title" style="display: flex; align-items: center; gap: var(--space-sm);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+              Workout Videos
+            </h3>
+            <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: var(--space-lg);">
+              Free workout videos from top fitness channels
+            </p>
+            <div id="workoutVideosContent"></div>
+          </div>
+
+          <div class="resources-section" style="margin-top: var(--space-xl);">
+            <h3 class="section-title">Movement Guides</h3>
+            
+            <div class="resource-card" onclick="App.showResourceDetail('gentle-movement')">
+              <div class="resource-card-header">
+                <div class="resource-icon" style="background: rgba(245, 169, 98, 0.1); color: var(--color-movement);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/></svg></div>
+                <span class="resource-title">Gentle Movement</span>
+              </div>
+              <p class="resource-description">Stretching, yoga, and low-impact exercises for all levels.</p>
+            </div>
+            
+            <div class="resource-card" onclick="App.showResourceDetail('walking')">
+              <div class="resource-card-header">
+                <div class="resource-icon" style="background: rgba(245, 169, 98, 0.1); color: var(--color-movement);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2"/><path d="M12 7v6M9 20l3-7 3 7"/></svg></div>
+                <span class="resource-title">Walking for Wellness</span>
+              </div>
+              <p class="resource-description">The simplest, most powerful movement for health.</p>
+            </div>
+          </div>
+
+          <div id="movementResources" class="external-resources-section"></div>
+        </section>
+
+        <!-- Mind View -->
+        <section class="view" id="mindView">
+          <button class="back-btn" onclick="App.navigateTo('homeView')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back
+          </button>
+          
+          <div class="pillar-hero" style="border-top: 4px solid var(--color-mind);">
+            <div class="pillar-hero-icon" style="background: rgba(196, 155, 212, 0.1); color: var(--color-mind);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h1>Mind & Emotions</h1>
+            <p>Cultivate inner peace and clarity</p>
+          </div>
+
+          <div class="journal-section">
+            <h3 class="section-title">Today's Journal</h3>
+            
+            <div class="journal-prompt-card">
+              <p class="journal-prompt-question">How am I feeling right now?</p>
+              <textarea class="journal-textarea" id="journalFeeling" placeholder="Check in with yourself..."></textarea>
+            </div>
+            
+            <div class="journal-prompt-card">
+              <p class="journal-prompt-question">How would I like to feel?</p>
+              <textarea class="journal-textarea" id="journalDesire" placeholder="Envision your ideal state..."></textarea>
+            </div>
+            
+            <div class="journal-prompt-card">
+              <p class="journal-prompt-question">Five things I'm grateful for:</p>
+              <div class="gratitude-list">
+                <div class="gratitude-input"><span class="gratitude-number">1</span><input type="text" id="gratitude1" placeholder="I'm grateful for..."></div>
+                <div class="gratitude-input"><span class="gratitude-number">2</span><input type="text" id="gratitude2" placeholder="I'm grateful for..."></div>
+                <div class="gratitude-input"><span class="gratitude-number">3</span><input type="text" id="gratitude3" placeholder="I'm grateful for..."></div>
+                <div class="gratitude-input"><span class="gratitude-number">4</span><input type="text" id="gratitude4" placeholder="I'm grateful for..."></div>
+                <div class="gratitude-input"><span class="gratitude-number">5</span><input type="text" id="gratitude5" placeholder="I'm grateful for..."></div>
+              </div>
+            </div>
+            
+            <button class="journal-save-btn" id="saveJournalBtn">Save Today's Reflection</button>
+          </div>
+
+          <div class="resources-section">
+            <h3 class="section-title">Mindfulness Tools</h3>
+            
+            <div class="resource-card" onclick="App.showResourceDetail('breathing')">
+              <div class="resource-card-header">
+                <div class="resource-icon" style="background: rgba(196, 155, 212, 0.1); color: var(--color-mind);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+                <span class="resource-title">Breathing Exercises</span>
+              </div>
+              <p class="resource-description">Calm your nervous system instantly.</p>
+            </div>
+            
+            <div class="resource-card" onclick="App.showResourceDetail('meditation')">
+              <div class="resource-card-header">
+                <div class="resource-icon" style="background: rgba(196, 155, 212, 0.1); color: var(--color-mind);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/></svg></div>
+                <span class="resource-title">Meditation Guide</span>
+              </div>
+              <p class="resource-description">Begin or deepen your practice.</p>
+            </div>
+          </div>
+
+          <div id="mindResources" class="external-resources-section"></div>
+        </section>
+
+        <!-- Profile View -->
+        <section class="view" id="profileView">
+          <button class="back-btn" onclick="App.navigateTo('homeView')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back
+          </button>
+          
+          <div class="profile-header">
+            <div class="profile-avatar-large" id="profileAvatarLarge">G</div>
+            <h1 id="profileName">Guest</h1>
+            <p id="profileEmail">Exploring as guest</p>
+          </div>
+
+          <div class="profile-section">
+            <h3 class="section-title">My Wellness Goals</h3>
+            <div class="goals-display" id="profileGoals">
+              <span class="goal-tag">Better Sleep</span>
+              <span class="goal-tag">More Energy</span>
+            </div>
+          </div>
+
+          <div class="profile-section">
+            <h3 class="section-title">Settings</h3>
+            <div class="settings-list">
+              <div class="setting-item" onclick="ResourcesModule.openCountryModal()">
+                <span>Country/Region</span>
+                <span class="setting-value" id="settingCountry">United States</span>
+              </div>
+              <div class="setting-item">
+                <span>Daily Step Goal</span>
+                <span class="setting-value" id="settingStepGoal">10,000</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-danger-zone" id="profileDangerZone">
+            <button class="danger-btn" onclick="App.clearAllData()">Clear All Data</button>
+          </div>
+        </section>
+
+        <!-- Progress View -->
+        <section class="view" id="progressView">
+          <button class="back-btn" onclick="App.navigateTo('homeView')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back
+          </button>
+          
+          <div class="progress-header">
+            <h1>My Progress</h1>
+            <p>Track your wellness journey over time</p>
+          </div>
+
+          <div class="progress-stats-grid">
+            <div class="progress-stat-card">
+              <div class="progress-stat-icon" style="background: rgba(107, 196, 107, 0.1); color: var(--color-nutrition);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="progress-stat-value" id="progressDaysActive">1</div>
+              <div class="progress-stat-label">Days Active</div>
+            </div>
+            <div class="progress-stat-card">
+              <div class="progress-stat-icon" style="background: rgba(196, 155, 212, 0.1); color: var(--color-mind);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              </div>
+              <div class="progress-stat-value" id="progressJournalEntries">0</div>
+              <div class="progress-stat-label">Journal Entries</div>
+            </div>
+            <div class="progress-stat-card">
+              <div class="progress-stat-icon" style="background: rgba(245, 169, 98, 0.1); color: var(--color-movement);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2"/><path d="M12 7v6M9 20l3-7 3 7"/></svg>
+              </div>
+              <div class="progress-stat-value" id="progressWorkouts">0</div>
+              <div class="progress-stat-label">Workouts Logged</div>
+            </div>
+            <div class="progress-stat-card">
+              <div class="progress-stat-icon" style="background: rgba(124, 159, 212, 0.1); color: var(--color-sleep);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+              </div>
+              <div class="progress-stat-value" id="progressCurrentStreak">0</div>
+              <div class="progress-stat-label">Day Streak</div>
+            </div>
+          </div>
+
+          <div class="progress-section">
+            <h3 class="section-title">Recent Activity</h3>
+            <div class="activity-list" id="activityList">
+              <p class="activity-empty">Start logging your wellness activities to see them here!</p>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Bottom Navigation -->
+      <nav class="bottom-nav">
+        <button class="nav-item active" data-view="homeView">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <span>Home</span>
+        </button>
+        <button class="nav-item" data-view="nutritionView">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+          </svg>
+          <span>Nutrition</span>
+        </button>
+        <button class="nav-item" data-view="sleepView">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span>Sleep</span>
+        </button>
+        <button class="nav-item" data-view="movementView">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="5" r="2"/>
+            <path d="M12 7v6M9 20l3-7 3 7M6 12h12"/>
+          </svg>
+          <span>Movement</span>
+        </button>
+        <button class="nav-item" data-view="mindView">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span>Mind</span>
+        </button>
+      </nav>
+
+      <!-- Modal -->
+      <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+          <div class="modal-header">
+            <h2 id="modalTitle">Details</h2>
+            <button class="modal-close" id="modalClose">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+          <div class="modal-body" id="modalBody"></div>
+        </div>
+      </div>
+
+      <!-- Toast -->
+      <div class="toast" id="toast">
+        <span id="toastMessage"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/wellness-ai.js"></script>
+  <script src="js/journal.js"></script>
+  <script src="js/resources.js"></script>
+  <script src="js/movement.js"></script>
+  <script src="js/user.js"></script>
+</body>
+</html>
