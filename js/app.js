@@ -553,3 +553,27 @@ window.App = {
   toggleUserMenu: () => UserModule.toggleUserMenu(),
   clearAllData: () => UserModule.clearAllData()
 };
+// Dark Mode Toggle
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+  const isDarkMode = document.body.classList.contains('dark-mode');
+  localStorage.setItem('darkMode', isDarkMode);
+}
+
+// Load Dark Mode on startup
+function loadDarkMode() {
+  const savedDarkMode = localStorage.getItem('darkMode');
+  if (savedDarkMode === 'true') {
+    document.body.classList.add('dark-mode');
+  }
+}
+
+// Add click listener to dark mode button
+document.addEventListener('DOMContentLoaded', function() {
+  loadDarkMode();
+  
+  const darkModeBtn = document.getElementById('darkModeToggle');
+  if (darkModeBtn) {
+    darkModeBtn.addEventListener('click', toggleDarkMode);
+  }
+});
