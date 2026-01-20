@@ -43,8 +43,12 @@ const WellnessAI = (function() {
     'cant_sleep': {
       // מילות מפתח שהמערכת מחפשת בקלט המשתמש (אנגלית + עברית)
       patterns: ['cant sleep', "can't sleep", 'cannot sleep', 'trouble sleeping', 'hard to sleep', 'difficulty sleeping', 'struggling to fall asleep', 'falling asleep', 'fall asleep', 'takes forever to sleep', 'lying awake',
-        // עברית
-        'לא מצליח לישון', 'לא מצליחה לישון', 'קשה לי לישון', 'קשה לי להירדם', 'לא נרדם', 'לא נרדמת', 'בעיות שינה', 'קושי להירדם', 'לא יכול לישון', 'לא יכולה לישון'],
+        // עברית - כל הווריאציות האפשריות
+        'לא מצליח לישון', 'לא מצליחה לישון', 'לא מצליח להירדם', 'לא מצליחה להירדם',
+        'קשה לי לישון', 'קשה לי להירדם', 'לא נרדם', 'לא נרדמת', 'לא נרדמים',
+        'בעיות שינה', 'קושי להירדם', 'לא יכול לישון', 'לא יכולה לישון',
+        'לא יכול להירדם', 'לא יכולה להירדם', 'בעיות להירדם', 'להירדם בלילה',
+        'לישון בלילה', 'שינה בלילה', 'אין שינה', 'בלי שינה', 'חוסר שינה'],
       title: 'Difficulty Falling Asleep',  // כותרת שמוצגת למשתמש
       recommendations: [
         {
@@ -1261,7 +1265,7 @@ const WellnessAI = (function() {
       // --- שלב 2: התאמת מילות מפתח ---
       // מיפוי מילות מפתח לכל מצב
       const keywordMap = {
-        'cant_sleep': ['cant sleep', "can't sleep", 'trouble sleep', 'hard to sleep', 'difficulty sleep', 'fall asleep', 'falling asleep'],
+        'cant_sleep': ['cant sleep', "can't sleep", 'trouble sleep', 'hard to sleep', 'difficulty sleep', 'fall asleep', 'falling asleep', 'להירדם', 'לישון', 'נרדם', 'שינה'],
         'insomnia': ['wake up', 'waking up', 'awake at night', 'middle of the night', 'middle of night', 'cant stay asleep', "can't stay asleep", 'keep waking'],
         'period_loss': ['lost my period', 'lost period', 'no period', 'missing period', 'period stopped', 'irregular period', 'missed period', 'late period', 'amenorrhea'],
         'period_pain': ['period pain', 'menstrual cramp', 'cramps', 'painful period', 'pms'],
@@ -1295,7 +1299,7 @@ const WellnessAI = (function() {
       // מיפוי מילים בודדות לכל מצב
       const singleWordMap = {
         'insomnia': ['wake', 'waking', 'awake', 'night'],
-        'cant_sleep': ['sleep', 'sleeping', 'asleep', 'insomnia'],
+        'cant_sleep': ['sleep', 'sleeping', 'asleep', 'insomnia', 'שינה', 'לישון', 'להירדם', 'נרדם', 'נרדמת'],
         'period_loss': ['period', 'menstrual', 'amenorrhea'],
         'period_pain': ['cramps', 'cramping', 'pms'],
         'muscle_soreness': ['muscle', 'muscles', 'sore', 'aching', 'hurt', 'hurts', 'pain'],
