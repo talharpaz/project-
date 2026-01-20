@@ -544,21 +544,24 @@ body::before {
 /* ===========================================
    INTERACTIVE TOUR - סיור אינטראקטיבי
    ===========================================
-   עיצוב לסיור מודרך למשתמשים חדשים
+   עיצוב מודרני לסיור מודרך למשתמשים חדשים
+   פונט: Outfit - גיאומטרי, נקי ומודרני
    =========================================== */
 
-/* Overlay - רקע כהה מאחורי הסיור */
+/* Overlay - רקע כהה עם אפקט blur */
 .tour-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 9998;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 .tour-overlay.visible {
@@ -569,31 +572,47 @@ body::before {
 /* Spotlight - החלון שמדגיש את האלמנט */
 .tour-spotlight {
   position: absolute;
-  border-radius: 12px;
-  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.75);
+  border-radius: 16px;
+  box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.85);
   background: transparent;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   opacity: 0;
 }
 
-/* Tooltip - תיבת ההסבר */
+/* Tooltip - תיבת ההסבר המודרנית */
 .tour-tooltip {
   position: fixed;
   z-index: 9999;
-  max-width: 340px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 380px;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 24px;
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.25),
+    0 10px 30px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
   opacity: 0;
   visibility: hidden;
-  transform: scale(0.9);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0.9) translateY(10px);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+
+.tour-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6);
+  border-radius: 24px 24px 0 0;
 }
 
 .tour-tooltip.visible {
   opacity: 1;
   visibility: visible;
-  transform: scale(1);
+  transform: scale(1) translateY(0);
 }
 
 .tour-tooltip[data-position="center"] {
@@ -601,135 +620,200 @@ body::before {
 }
 
 .tour-tooltip[data-position="center"]:not(.visible) {
-  transform: translate(-50%, -50%) scale(0.9);
+  transform: translate(-50%, -50%) scale(0.9) translateY(10px);
 }
 
 /* תוכן הטולטיפ */
 .tour-tooltip-content {
-  padding: var(--space-lg);
+  padding: 28px 24px 24px;
   text-align: center;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .tour-title {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin: 0 0 var(--space-sm) 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
 }
 
 .tour-content {
-  font-size: 0.95rem;
-  color: var(--color-text-secondary);
-  line-height: 1.6;
-  margin: 0 0 var(--space-md) 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.7;
+  margin: 0 0 20px 0;
+  letter-spacing: 0.01em;
 }
 
-/* נקודות התקדמות */
+/* נקודות התקדמות מודרניות */
 .tour-progress {
   display: flex;
   justify-content: center;
-  gap: 8px;
-  margin-bottom: var(--space-md);
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .tour-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: var(--color-border);
-  transition: all 0.3s ease;
+  background: #e2e8f0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
 }
 
 .tour-dot.active {
-  background: var(--color-accent-primary);
-  transform: scale(1.3);
+  background: linear-gradient(135deg, #10b981, #059669);
+  transform: scale(1.4);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
 }
 
-/* כפתורי פעולה */
+/* כפתורי פעולה מודרניים */
 .tour-actions {
   display: flex;
-  gap: var(--space-sm);
+  gap: 12px;
   justify-content: center;
 }
 
 .tour-btn {
-  padding: 10px 24px;
-  border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-family: 'Outfit', sans-serif;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   border: none;
+  letter-spacing: 0.02em;
 }
 
 .tour-btn-skip {
   background: transparent;
-  color: var(--color-text-tertiary);
+  color: #94a3b8;
 }
 
 .tour-btn-skip:hover {
-  color: var(--color-text-secondary);
-  background: var(--color-bg-secondary);
+  color: #64748b;
+  background: #f1f5f9;
+  transform: scale(1.02);
 }
 
 .tour-btn-next {
-  background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
-  box-shadow: 0 4px 15px var(--color-accent-glow);
+  box-shadow: 
+    0 4px 15px rgba(16, 185, 129, 0.4),
+    0 2px 4px rgba(16, 185, 129, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.tour-btn-next::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
 }
 
 .tour-btn-next:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px var(--color-accent-glow);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 8px 25px rgba(16, 185, 129, 0.5),
+    0 4px 10px rgba(16, 185, 129, 0.3);
+}
+
+.tour-btn-next:hover::before {
+  left: 100%;
 }
 
 /* חץ הטולטיפ */
 .tour-tooltip-arrow {
   position: absolute;
-  width: 16px;
-  height: 16px;
-  background: white;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
   transform: rotate(45deg);
-  border-radius: 3px;
+  border-radius: 4px;
+  box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .tour-tooltip[data-position="bottom"] .tour-tooltip-arrow {
-  top: -8px;
+  top: -10px;
   left: 50%;
-  margin-left: -8px;
+  margin-left: -10px;
 }
 
 .tour-tooltip[data-position="top"] .tour-tooltip-arrow {
-  bottom: -8px;
+  bottom: -10px;
   left: 50%;
-  margin-left: -8px;
+  margin-left: -10px;
 }
 
 .tour-tooltip[data-position="left"] .tour-tooltip-arrow {
-  right: -8px;
+  right: -10px;
   top: 50%;
-  margin-top: -8px;
+  margin-top: -10px;
 }
 
 .tour-tooltip[data-position="right"] .tour-tooltip-arrow {
-  left: -8px;
+  left: -10px;
   top: 50%;
-  margin-top: -8px;
+  margin-top: -10px;
 }
 
 .tour-tooltip[data-position="center"] .tour-tooltip-arrow {
   display: none;
 }
 
-/* אנימציית פולס על ה-Spotlight */
+/* אנימציית פולס מודרנית על ה-Spotlight */
 @keyframes tourPulse {
-  0%, 100% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.75), 0 0 0 0 rgba(45, 90, 74, 0.4); }
-  50% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.75), 0 0 0 10px rgba(45, 90, 74, 0); }
+  0%, 100% { 
+    box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.85), 0 0 0 0 rgba(16, 185, 129, 0.5); 
+  }
+  50% { 
+    box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.85), 0 0 0 15px rgba(16, 185, 129, 0); 
+  }
 }
 
 .tour-spotlight {
-  animation: tourPulse 2s infinite;
+  animation: tourPulse 2.5s ease-in-out infinite;
+}
+
+/* אנימציית כניסה לטקסט */
+@keyframes tourFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tour-tooltip.visible .tour-title {
+  animation: tourFadeIn 0.4s ease 0.1s both;
+}
+
+.tour-tooltip.visible .tour-content {
+  animation: tourFadeIn 0.4s ease 0.2s both;
+}
+
+.tour-tooltip.visible .tour-progress {
+  animation: tourFadeIn 0.4s ease 0.3s both;
+}
+
+.tour-tooltip.visible .tour-actions {
+  animation: tourFadeIn 0.4s ease 0.4s both;
 }
 
 /* רספונסיביות - מובייל */
@@ -737,6 +821,7 @@ body::before {
   .tour-tooltip {
     max-width: calc(100vw - 32px);
     margin: 0 16px;
+    border-radius: 20px;
   }
   
   .tour-tooltip[data-position="center"] {
@@ -745,14 +830,19 @@ body::before {
   }
   
   .tour-tooltip-content {
-    padding: var(--space-md);
+    padding: 24px 20px 20px;
   }
   
   .tour-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   
   .tour-content {
+    font-size: 0.95rem;
+  }
+  
+  .tour-btn {
+    padding: 10px 22px;
     font-size: 0.9rem;
   }
 }
