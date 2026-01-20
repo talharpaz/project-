@@ -1107,10 +1107,12 @@ const WellnessAI = (function() {
   /**
    * מטפל בשליחת השאלה מהמשתמש
    * מראה טעינה, מנתח את הקלט, מציג תוצאות
+   * אם אין התאמה טובה - פונה ל-OpenAI אוטומטית!
    */
-  function handleSubmit() {
-    // קבלת הקלט ונרמול (lowercase + הסרת רווחים)
-    const input = elements.input.value.trim().toLowerCase();
+  async function handleSubmit() {
+    // קבלת הקלט (שומרים את הטקסט המקורי לשליחה ל-AI)
+    const originalInput = elements.input.value.trim();
+    const input = originalInput.toLowerCase();
     
     // בדיקה שיש קלט
     if (!input) {
@@ -1122,23 +1124,101 @@ const WellnessAI = (function() {
     elements.submitBtn.disabled = true;
     elements.submitBtn.innerHTML = '<span class="loading">Analyzing your concern...</span>';
     
-    // סימולציה של עיבוד (800ms) - נותן תחושה של "חשיבה"
+    // ניתוח הקלט ומציאת המצב המתאים במערכת הכללים
+    const result = analyzeInput(input);
+    
+    // בדיקה אם זו תשובה כללית (לא נמצאה התאמה ספציפית)
+    const isGeneralResponse = result.title === 'General Wellness';
+    
+    // === אם תשובה כללית - ננסה לפנות ל-OpenAI ===
+    if (isGeneralResponse) {
+      elements.submitBtn.innerHTML = '<span class="loading">🤖 Asking AI for personalized advice...</span>';
+      
+      try {
+        // קריאה ל-OpenAI דרך ה-API המאובטח שלנו
+        const aiResponse = await askRealAI(originalInput);
+        
+        if (aiResponse) {
+          // יש תשובה מ-AI אמיתי - הצג אותה!
+          displayAIResponse(aiResponse, originalInput);
+          resetSubmitButton();
+          return;
+        }
+      } catch (error) {
+        console.log('OpenAI not available, falling back to rules:', error);
+        // אם OpenAI לא זמין - נמשיך לתשובה הכללית
+      }
+    }
+    
+    // הצגת ההמלצות ממערכת הכללים
     setTimeout(() => {
-      // ניתוח הקלט ומציאת המצב המתאים
-      const result = analyzeInput(input);
-      
-      // הצגת ההמלצות
       displayRecommendations(result, input);
-      
-      // החזרת הכפתור למצב רגיל
-      elements.submitBtn.disabled = false;
-      elements.submitBtn.innerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-        </svg>
-        Get Holistic Recommendations
-      `;
-    }, 800);
+      resetSubmitButton();
+    }, 300);
+  }
+  
+  /**
+   * מחזיר את כפתור השליחה למצב רגיל
+   */
+  function resetSubmitButton() {
+    elements.submitBtn.disabled = false;
+    elements.submitBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+      Get Holistic Recommendations
+    `;
+  }
+  
+  /**
+   * מציג תשובה מ-OpenAI בפורמט יפה
+   * @param {string} aiMessage - התשובה מה-AI
+   * @param {string} userInput - השאלה המקורית
+   */
+  function displayAIResponse(aiMessage, userInput) {
+    // הצגת מיכל התשובה
+    elements.response.classList.remove('hidden');
+    
+    // יצירת HTML לתשובה מעוצבת
+    elements.responseContent.innerHTML = `
+      <div class="ai-header">
+        <span class="ai-icon">🤖</span>
+        <h3>AI Wellness Recommendation</h3>
+        <span class="ai-badge">Powered by OpenAI</span>
+      </div>
+      <p class="ai-intro">Based on: <strong>"${userInput}"</strong></p>
+      <div class="ai-message">
+        ${formatAIMessage(aiMessage)}
+      </div>
+      <p class="ai-disclaimer">
+        <em>💡 This is AI-generated advice. Always consult a healthcare professional for medical concerns.</em>
+      </p>
+    `;
+    
+    // גלילה לתשובה
+    elements.response.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  
+  /**
+   * מפרמט את התשובה מ-AI לתצוגה יפה
+   * מחלק לפסקאות, מזהה רשימות, מוסיף עיצוב
+   */
+  function formatAIMessage(message) {
+    // חלוקה לפסקאות
+    const paragraphs = message.split('\n\n').filter(p => p.trim());
+    
+    return paragraphs.map(p => {
+      // זיהוי רשימות (מתחילות ב-• או - או מספר)
+      if (p.includes('\n-') || p.includes('\n•') || /\n\d+\./.test(p)) {
+        const lines = p.split('\n');
+        const items = lines.map(line => {
+          const cleaned = line.replace(/^[-•\d.]\s*/, '').trim();
+          return cleaned ? `<li>${cleaned}</li>` : '';
+        }).join('');
+        return `<ul class="ai-list">${items}</ul>`;
+      }
+      return `<p>${p}</p>`;
+    }).join('');
   }
 
 

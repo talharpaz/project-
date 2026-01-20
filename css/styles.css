@@ -458,6 +458,88 @@ body::before {
   color: var(--color-accent-primary);
 }
 
+/* === OpenAI Response Styles === */
+/* עיצוב לתשובות מ-OpenAI */
+
+.ai-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.ai-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.ai-icon {
+  font-size: 1.5rem;
+}
+
+.ai-badge {
+  background: linear-gradient(135deg, #10a37f, #1a7f64);
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.ai-intro {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+  font-size: 0.9rem;
+}
+
+.ai-message {
+  background: white;
+  padding: var(--space-md);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-md);
+  line-height: 1.8;
+  color: var(--color-text-primary);
+}
+
+.ai-message p {
+  margin-bottom: var(--space-sm);
+}
+
+.ai-message p:last-child {
+  margin-bottom: 0;
+}
+
+.ai-list {
+  list-style: none;
+  padding-left: var(--space-md);
+  margin: var(--space-sm) 0;
+}
+
+.ai-list li {
+  position: relative;
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-xs);
+}
+
+.ai-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent-primary);
+}
+
+.ai-disclaimer {
+  font-size: 0.8rem;
+  color: var(--color-text-tertiary);
+  padding: var(--space-sm);
+  background: rgba(0,0,0,0.03);
+  border-radius: var(--radius-sm);
+  margin: 0;
+}
+
 /* Daily Tip */
 .daily-tip-card {
   background: var(--color-bg-card);
