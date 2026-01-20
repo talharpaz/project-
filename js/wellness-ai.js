@@ -41,8 +41,10 @@ const WellnessAI = (function() {
     
     // קושי להירדם
     'cant_sleep': {
-      // מילות מפתח שהמערכת מחפשת בקלט המשתמש
-      patterns: ['cant sleep', "can't sleep", 'cannot sleep', 'trouble sleeping', 'hard to sleep', 'difficulty sleeping', 'struggling to fall asleep', 'falling asleep', 'fall asleep', 'takes forever to sleep', 'lying awake'],
+      // מילות מפתח שהמערכת מחפשת בקלט המשתמש (אנגלית + עברית)
+      patterns: ['cant sleep', "can't sleep", 'cannot sleep', 'trouble sleeping', 'hard to sleep', 'difficulty sleeping', 'struggling to fall asleep', 'falling asleep', 'fall asleep', 'takes forever to sleep', 'lying awake',
+        // עברית
+        'לא מצליח לישון', 'לא מצליחה לישון', 'קשה לי לישון', 'קשה לי להירדם', 'לא נרדם', 'לא נרדמת', 'בעיות שינה', 'קושי להירדם', 'לא יכול לישון', 'לא יכולה לישון'],
       title: 'Difficulty Falling Asleep',  // כותרת שמוצגת למשתמש
       recommendations: [
         {
@@ -90,7 +92,9 @@ const WellnessAI = (function() {
 
     // נדודי שינה והתעוררויות בלילה
     'insomnia': {
-      patterns: ['insomnia', 'awake at night', 'wake up at night', 'waking up', 'cant stay asleep', "can't stay asleep", 'middle of night', 'keep waking', '3am', '4am'],
+      patterns: ['insomnia', 'awake at night', 'wake up at night', 'waking up', 'cant stay asleep', "can't stay asleep", 'middle of night', 'keep waking', '3am', '4am',
+        // עברית
+        'נדודי שינה', 'מתעורר בלילה', 'מתעוררת בלילה', 'לא ישנה טוב', 'לא ישן טוב', 'התעוררות בלילה', 'קם בלילה', 'קמה בלילה', 'אינסומניה'],
       title: 'Insomnia & Night Waking',
       recommendations: [
         {
@@ -130,7 +134,9 @@ const WellnessAI = (function() {
 
     // שלשול
     'diarrhea': {
-      patterns: ['diarrhea', 'loose stool', 'loose stools', 'runny stomach', 'upset stomach', 'watery stool', 'bathroom a lot', 'frequent bowel'],
+      patterns: ['diarrhea', 'loose stool', 'loose stools', 'runny stomach', 'upset stomach', 'watery stool', 'bathroom a lot', 'frequent bowel',
+        // עברית
+        'שלשול', 'משלשל', 'משלשלת', 'בטן רופפת', 'בעיות בטן', 'כאב בטן', 'שירותים הרבה', 'רץ לשירותים'],
       title: 'Diarrhea & Loose Stools',
       recommendations: [
         {
@@ -173,7 +179,9 @@ const WellnessAI = (function() {
 
     // עצירות
     'constipation': {
-      patterns: ['constipation', 'constipated', 'cant poop', "can't poop", 'hard stool', 'difficulty pooping', 'not regular', 'bowel movement', 'haven\'t pooped', 'blocked up'],
+      patterns: ['constipation', 'constipated', 'cant poop', "can't poop", 'hard stool', 'difficulty pooping', 'not regular', 'bowel movement', 'haven\'t pooped', 'blocked up',
+        // עברית
+        'עצירות', 'עצור', 'עצורה', 'לא יכול לעשות', 'קשה לי ללכת לשירותים', 'סתום', 'סתומה'],
       title: 'Constipation',
       recommendations: [
         {
@@ -216,7 +224,9 @@ const WellnessAI = (function() {
 
     // נפיחות וגזים
     'bloating': {
-      patterns: ['bloated', 'bloating', 'gassy', 'gas', 'stomach bloat', 'belly bloat', 'feeling full', 'distended', 'puffy stomach'],
+      patterns: ['bloated', 'bloating', 'gassy', 'gas', 'stomach bloat', 'belly bloat', 'feeling full', 'distended', 'puffy stomach',
+        // עברית
+        'נפיחות', 'נפוח', 'נפוחה', 'גזים', 'בטן נפוחה', 'מרגיש נפוח', 'מרגישה נפוחה', 'תפוח', 'תפוחה'],
       title: 'Bloating & Gas',
       recommendations: [
         {
@@ -259,7 +269,9 @@ const WellnessAI = (function() {
 
     // בחילות
     'nausea': {
-      patterns: ['nausea', 'nauseous', 'feel sick', 'queasy', 'want to vomit', 'throw up', 'motion sick', 'morning sickness', 'sick to stomach'],
+      patterns: ['nausea', 'nauseous', 'feel sick', 'queasy', 'want to vomit', 'throw up', 'motion sick', 'morning sickness', 'sick to stomach',
+        // עברית
+        'בחילה', 'בחילות', 'מקיא', 'מקיאה', 'רוצה להקיא', 'מרגיש רע בבטן', 'סחרחורת', 'לא מרגיש טוב'],
       title: 'Nausea',
       recommendations: [
         {
@@ -304,7 +316,9 @@ const WellnessAI = (function() {
 
     // עייפות
     'fatigue': {
-      patterns: ['tired', 'fatigue', 'exhausted', 'no energy', 'low energy', 'drained', 'sluggish', 'lethargic', 'always tired', 'worn out', 'wiped out'],
+      patterns: ['tired', 'fatigue', 'exhausted', 'no energy', 'low energy', 'drained', 'sluggish', 'lethargic', 'always tired', 'worn out', 'wiped out',
+        // עברית
+        'עייף', 'עייפה', 'עייפות', 'תשוש', 'תשושה', 'אין לי כוח', 'אין לי אנרגיה', 'מרגיש חלש', 'מרגישה חלשה', 'ללא אנרגיה', 'גמור', 'גמורה'],
       title: 'Fatigue & Low Energy',
       recommendations: [
         {
@@ -354,7 +368,9 @@ const WellnessAI = (function() {
 
     // חרדה
     'anxiety': {
-      patterns: ['anxious', 'anxiety', 'worried', 'worrying', 'nervous', 'panic', 'panicking', 'racing thoughts', 'overwhelmed', 'cant relax', "can't relax"],
+      patterns: ['anxious', 'anxiety', 'worried', 'worrying', 'nervous', 'panic', 'panicking', 'racing thoughts', 'overwhelmed', 'cant relax', "can't relax",
+        // עברית
+        'חרדה', 'חרד', 'חרדתי', 'חרדתית', 'פאניקה', 'דאגה', 'דואג', 'דואגת', 'מודאג', 'מודאגת', 'עצבני', 'עצבנית', 'לא רגוע', 'לא רגועה'],
       title: 'Anxiety & Worry',
       recommendations: [
         {
@@ -402,7 +418,9 @@ const WellnessAI = (function() {
 
     // לחץ
     'stress': {
-      patterns: ['stressed', 'stress', 'pressure', 'tension', 'tense', 'overwhelm', 'burnout', 'burned out', 'too much', 'overworked'],
+      patterns: ['stressed', 'stress', 'pressure', 'tension', 'tense', 'overwhelm', 'burnout', 'burned out', 'too much', 'overworked',
+        // עברית
+        'לחץ', 'בלחץ', 'לחוץ', 'לחוצה', 'סטרס', 'מתח', 'שחיקה', 'עומס', 'עמוס', 'עמוסה', 'מותש', 'מותשת'],
       title: 'Stress & Tension',
       recommendations: [
         {
@@ -451,7 +469,9 @@ const WellnessAI = (function() {
     // === כאב ראש ===
 
     'headache': {
-      patterns: ['headache', 'head hurts', 'migraine', 'head pain', 'temple pain', 'head ache', 'throbbing head', 'pounding head'],
+      patterns: ['headache', 'head hurts', 'migraine', 'head pain', 'temple pain', 'head ache', 'throbbing head', 'pounding head',
+        // עברית
+        'כאב ראש', 'כואב לי הראש', 'מיגרנה', 'ראש כואב', 'כאב בראש', 'הראש כואב', 'כאבי ראש'],
       title: 'Headache & Migraine',
       recommendations: [
         {
@@ -500,7 +520,9 @@ const WellnessAI = (function() {
     // === מצב רוח ודיכאון ===
 
     'depression': {
-      patterns: ['depressed', 'depression', 'sad', 'down', 'hopeless', 'unmotivated', 'empty', 'no motivation', 'feeling low', 'lost interest', 'numb'],
+      patterns: ['depressed', 'depression', 'sad', 'down', 'hopeless', 'unmotivated', 'empty', 'no motivation', 'feeling low', 'lost interest', 'numb',
+        // עברית
+        'דיכאון', 'מדוכא', 'מדוכאת', 'עצוב', 'עצובה', 'מרגיש רע', 'מרגישה רע', 'חסר מוטיבציה', 'חסרת מוטיבציה', 'ריק', 'ריקה', 'אין לי מוטיבציה'],
       title: 'Low Mood & Depression',
       recommendations: [
         {
@@ -598,7 +620,9 @@ const WellnessAI = (function() {
     // === כאבי שרירים ===
 
     'muscle_soreness': {
-      patterns: ['muscle sore', 'muscles sore', 'sore muscles', 'muscle pain', 'body ache', 'aching muscles', 'muscle ache', 'stiff muscles', 'muscle tension', 'tight muscles', 'doms', 'workout soreness', 'muscle hurt', 'muscles hurt', 'hurts muscle', 'my muscles', 'body hurts', 'muscles are', 'muscle is'],
+      patterns: ['muscle sore', 'muscles sore', 'sore muscles', 'muscle pain', 'body ache', 'aching muscles', 'muscle ache', 'stiff muscles', 'muscle tension', 'tight muscles', 'doms', 'workout soreness', 'muscle hurt', 'muscles hurt', 'hurts muscle', 'my muscles', 'body hurts', 'muscles are', 'muscle is',
+        // עברית
+        'כאב שרירים', 'כאבי שרירים', 'שרירים כואבים', 'גוף כואב', 'כואב לי הגוף', 'נוקשות', 'שרירים תפוסים', 'כאבים בגוף'],
       title: 'Muscle Soreness & Body Aches',
       recommendations: [
         {
@@ -648,7 +672,9 @@ const WellnessAI = (function() {
 
     // היעדר מחזור
     'period_loss': {
-      patterns: ['lost period', 'lost my period', 'no period', 'missing period', 'period stopped', 'amenorrhea', 'irregular period', 'skipped period', 'late period', 'period missing', "haven't had period", 'period is late', 'period late', 'missed period', 'miss my period', 'period gone', 'without period', "don't have period", "didn't get period", "didn't get my period", 'no menstrual', 'stopped menstruating'],
+      patterns: ['lost period', 'lost my period', 'no period', 'missing period', 'period stopped', 'amenorrhea', 'irregular period', 'skipped period', 'late period', 'period missing', "haven't had period", 'period is late', 'period late', 'missed period', 'miss my period', 'period gone', 'without period', "don't have period", "didn't get period", "didn't get my period", 'no menstrual', 'stopped menstruating',
+        // עברית
+        'אין לי מחזור', 'המחזור נעלם', 'מחזור לא סדיר', 'לא קיבלתי מחזור', 'איחור במחזור', 'מחזור באיחור', 'הפסקתי לקבל מחזור'],
       title: 'Missing or Irregular Period (Amenorrhea)',
       recommendations: [
         {
@@ -696,7 +722,9 @@ const WellnessAI = (function() {
 
     // כאבי מחזור
     'period_pain': {
-      patterns: ['period pain', 'menstrual cramps', 'cramps', 'painful period', 'period cramp', 'dysmenorrhea', 'pms', 'menstrual pain'],
+      patterns: ['period pain', 'menstrual cramps', 'cramps', 'painful period', 'period cramp', 'dysmenorrhea', 'pms', 'menstrual pain',
+        // עברית
+        'כאבי מחזור', 'כאב מחזור', 'כאבי וסת', 'התכווצויות', 'מחזור כואב', 'כאבים במחזור'],
       title: 'Menstrual Cramps & Period Pain',
       recommendations: [
         {
@@ -745,7 +773,9 @@ const WellnessAI = (function() {
     // === בעיות עור ===
 
     'acne': {
-      patterns: ['acne', 'pimples', 'breakout', 'skin breaking out', 'zits', 'spots on face', 'oily skin', 'blemishes'],
+      patterns: ['acne', 'pimples', 'breakout', 'skin breaking out', 'zits', 'spots on face', 'oily skin', 'blemishes',
+        // עברית
+        'אקנה', 'פצעונים', 'פצעים בפנים', 'עור שומני', 'פריחה', 'פריחה בפנים'],
       title: 'Acne & Skin Breakouts',
       recommendations: [
         {
@@ -843,7 +873,9 @@ const WellnessAI = (function() {
     // === כאבי גב ===
 
     'back_pain': {
-      patterns: ['back pain', 'lower back', 'back hurts', 'back ache', 'backache', 'spine pain', 'back sore'],
+      patterns: ['back pain', 'lower back', 'back hurts', 'back ache', 'backache', 'spine pain', 'back sore',
+        // עברית
+        'כאב גב', 'כאבי גב', 'גב כואב', 'כואב לי הגב', 'כאב בגב התחתון', 'עמוד שדרה'],
       title: 'Back Pain',
       recommendations: [
         {
