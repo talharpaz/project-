@@ -548,20 +548,19 @@ body::before {
    פונט: Outfit - גיאומטרי, נקי ומודרני
    =========================================== */
 
-/* Overlay - רקע כהה עם אפקט blur */
+/* Overlay - רקע כהה בלי blur כדי לראות את האתר */
 .tour-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: transparent;
   z-index: 9998;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
+  pointer-events: none;
 }
 
 .tour-overlay.visible {
@@ -569,14 +568,21 @@ body::before {
   visibility: visible;
 }
 
-/* Spotlight - החלון שמדגיש את האלמנט */
+/* Spotlight - חלון שמדגיש את האלמנט עם רקע כהה סביבו */
 .tour-spotlight {
-  position: absolute;
-  border-radius: 16px;
-  box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.85);
+  position: fixed;
+  border-radius: 12px;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.75);
   background: transparent;
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
+  pointer-events: auto;
+  z-index: 9998;
+  cursor: pointer;
+}
+
+.tour-spotlight.visible {
+  opacity: 1;
 }
 
 /* Tooltip - תיבת ההסבר המודרנית */
@@ -777,15 +783,15 @@ body::before {
 /* אנימציית פולס מודרנית על ה-Spotlight */
 @keyframes tourPulse {
   0%, 100% { 
-    box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.85), 0 0 0 0 rgba(16, 185, 129, 0.5); 
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7), 0 0 0 0 rgba(16, 185, 129, 0.6); 
   }
   50% { 
-    box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.85), 0 0 0 15px rgba(16, 185, 129, 0); 
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7), 0 0 0 12px rgba(16, 185, 129, 0); 
   }
 }
 
-.tour-spotlight {
-  animation: tourPulse 2.5s ease-in-out infinite;
+.tour-spotlight.visible {
+  animation: tourPulse 2s ease-in-out infinite;
 }
 
 /* אנימציית כניסה לטקסט */

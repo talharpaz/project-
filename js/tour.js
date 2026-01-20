@@ -108,12 +108,14 @@ const AppTour = (function() {
    * יוצר את ה-overlay והטולטיפ
    */
   function createTourElements() {
-    // יצירת Overlay (רקע כהה)
+    // יצירת Overlay (רקע כהה) - נפרד מה-spotlight
     tourOverlay = document.createElement('div');
     tourOverlay.className = 'tour-overlay';
-    tourOverlay.innerHTML = `
-      <div class="tour-spotlight"></div>
-    `;
+    
+    // יצירת Spotlight בנפרד (כדי שה-box-shadow יעבוד)
+    const spotlight = document.createElement('div');
+    spotlight.className = 'tour-spotlight';
+    spotlight.id = 'tourSpotlight';
     
     // יצירת Tooltip (תיבת ההסבר)
     tourTooltip = document.createElement('div');
@@ -133,7 +135,8 @@ const AppTour = (function() {
       </div>
     `;
     
-    // הוספה לדף
+    // הוספה לדף - spotlight חייב להיות נפרד
+    document.body.appendChild(spotlight);
     document.body.appendChild(tourOverlay);
     document.body.appendChild(tourTooltip);
     
@@ -141,8 +144,8 @@ const AppTour = (function() {
     tourTooltip.querySelector('.tour-btn-skip').addEventListener('click', endTour);
     tourTooltip.querySelector('.tour-btn-next').addEventListener('click', nextStep);
     
-    // לחיצה על ה-overlay גם מקדמת
-    tourOverlay.addEventListener('click', nextStep);
+    // לחיצה על ה-spotlight מקדמת
+    spotlight.addEventListener('click', nextStep);
   }
   
   /**
@@ -206,51 +209,72 @@ const AppTour = (function() {
    * מדגיש אלמנט ומציב את הטולטיפ לידו
    */
   function highlightElement(element, position) {
-    const rect = element.getBoundingClientRect();
-    const spotlight = tourOverlay.querySelector('.tour-spotlight');
+    const spotlight = document.getElementById('tourSpotlight');
     
-    // מיקום ה-Spotlight מעל האלמנט
-    spotlight.style.top = `${rect.top - 8}px`;
-    spotlight.style.left = `${rect.left - 8}px`;
-    spotlight.style.width = `${rect.width + 16}px`;
-    spotlight.style.height = `${rect.height + 16}px`;
-    spotlight.style.opacity = '1';
-    
-    // גלילה לאלמנט אם צריך
+    // גלילה לאלמנט אם צריך (לפני קבלת המיקום)
     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
     
-    // מיקום הטולטיפ
-    setTimeout(() => positionTooltip(rect, position), 300);
+    // המתנה קצרה לסיום הגלילה ואז מיקום
+    setTimeout(() => {
+      const rect = element.getBoundingClientRect();
+      
+      // מיקום ה-Spotlight מעל האלמנט עם padding
+      const padding = 10;
+      spotlight.style.top = `${rect.top - padding}px`;
+      spotlight.style.left = `${rect.left - padding}px`;
+      spotlight.style.width = `${rect.width + padding * 2}px`;
+      spotlight.style.height = `${rect.height + padding * 2}px`;
+      spotlight.style.opacity = '1';
+      spotlight.classList.add('visible');
+      
+      // מיקום הטולטיפ
+      positionTooltip(rect, position);
+    }, 400);
   }
   
   /**
    * ממקם את הטולטיפ ביחס לאלמנט
+   * מתאים אוטומטית אם אין מקום
    */
   function positionTooltip(rect, position) {
     const tooltip = tourTooltip;
     const tooltipRect = tooltip.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const windowWidth = window.innerWidth;
+    const margin = 20;
+    
+    // איפוס transform
+    tooltip.style.transform = '';
     
     let top, left;
+    let actualPosition = position;
     
-    switch (position) {
+    // בדיקה אם יש מקום למיקום המבוקש, אחרת התאמה
+    if (position === 'bottom' && rect.bottom + tooltipRect.height + margin > windowHeight) {
+      actualPosition = 'top';
+    } else if (position === 'top' && rect.top - tooltipRect.height - margin < 0) {
+      actualPosition = 'bottom';
+    }
+    
+    switch (actualPosition) {
       case 'top':
-        top = rect.top - tooltipRect.height - 20;
+        top = rect.top - tooltipRect.height - margin;
         left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
         tooltip.setAttribute('data-position', 'top');
         break;
       case 'bottom':
-        top = rect.bottom + 20;
+        top = rect.bottom + margin;
         left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
         tooltip.setAttribute('data-position', 'bottom');
         break;
       case 'left':
         top = rect.top + (rect.height / 2) - (tooltipRect.height / 2);
-        left = rect.left - tooltipRect.width - 20;
+        left = rect.left - tooltipRect.width - margin;
         tooltip.setAttribute('data-position', 'left');
         break;
       case 'right':
         top = rect.top + (rect.height / 2) - (tooltipRect.height / 2);
-        left = rect.right + 20;
+        left = rect.right + margin;
         tooltip.setAttribute('data-position', 'right');
         break;
       default:
@@ -259,19 +283,22 @@ const AppTour = (function() {
     }
     
     // וידוא שהטולטיפ לא יוצא מהמסך
-    left = Math.max(16, Math.min(left, window.innerWidth - tooltipRect.width - 16));
-    top = Math.max(16, Math.min(top, window.innerHeight - tooltipRect.height - 16));
+    left = Math.max(16, Math.min(left, windowWidth - tooltipRect.width - 16));
+    top = Math.max(80, Math.min(top, windowHeight - tooltipRect.height - 16)); // מינימום 80px מלמעלה
     
     tooltip.style.top = `${top}px`;
     tooltip.style.left = `${left}px`;
   }
   
   /**
-   * ממרכז את הטולטיפ במסך
+   * ממרכז את הטולטיפ במסך (כשאין אלמנט להדגיש)
    */
   function centerTooltip() {
-    const spotlight = tourOverlay.querySelector('.tour-spotlight');
-    spotlight.style.opacity = '0';
+    const spotlight = document.getElementById('tourSpotlight');
+    if (spotlight) {
+      spotlight.style.opacity = '0';
+      spotlight.classList.remove('visible');
+    }
     
     tourTooltip.style.top = '50%';
     tourTooltip.style.left = '50%';
@@ -346,11 +373,14 @@ const AppTour = (function() {
     isActive = false;
     
     // אנימציית יציאה
+    const spotlight = document.getElementById('tourSpotlight');
+    if (spotlight) spotlight.classList.remove('visible');
     tourOverlay.classList.remove('visible');
     tourTooltip.classList.remove('visible');
     
     // הסרת אלמנטים
     setTimeout(() => {
+      if (spotlight) spotlight.remove();
       if (tourOverlay) tourOverlay.remove();
       if (tourTooltip) tourTooltip.remove();
       tourOverlay = null;
