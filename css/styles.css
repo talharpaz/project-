@@ -629,28 +629,28 @@ body::before {
   transform: translate(-50%, -50%) scale(0.9) translateY(10px);
 }
 
-/* תוכן הטולטיפ - פונט Nunito לאווירה טבעית ונעימה */
+/* תוכן הטולטיפ - פונט זהה לאתר */
 .tour-tooltip-content {
   padding: 28px 24px 24px;
   text-align: center;
-  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body);
 }
 
 .tour-title {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #1e3a2f;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
   margin: 0 0 12px 0;
   letter-spacing: -0.01em;
   line-height: 1.4;
 }
 
 .tour-content {
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 400;
-  color: #4a6358;
+  color: var(--color-text-secondary);
   line-height: 1.75;
   margin: 0 0 20px 0;
   letter-spacing: 0.01em;
@@ -687,7 +687,7 @@ body::before {
 }
 
 .tour-btn {
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--font-body);
   padding: 12px 28px;
   border-radius: 50px;
   font-size: 0.95rem;
