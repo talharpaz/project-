@@ -21,48 +21,120 @@ const AppTour = (function() {
   // === הגדרות הסיור ===
   // ===========================================
   
-  // Tour steps - each step highlights an element and explains it
+  // Tour steps - comprehensive tour through all features and categories
   const tourSteps = [
+    // === WELCOME ===
     {
-      // Step 1: Welcome
-      target: null, // No specific element - welcome screen
-      title: '👋 Welcome to NaturalHealth!',
-      content: 'Let\'s take a quick tour to discover all the amazing features of this app.',
+      target: null,
+      title: '🌿 Welcome to NaturalHealth!',
+      content: 'Your personal holistic wellness companion. Let\'s explore all the natural tools to help you feel your best.',
       position: 'center'
     },
+    
+    // === AI ADVISOR ===
     {
-      // Step 2: AI Input Box
       target: '#wellnessInput',
-      title: '🤖 Smart Health Advisor',
-      content: 'Tell us what\'s bothering you - headache, fatigue, stress - and get personalized recommendations powered by AI!',
+      title: '🤖 Smart Wellness Advisor',
+      content: 'Describe how you\'re feeling - tired, stressed, headache - and get personalized natural recommendations instantly!',
       position: 'bottom'
     },
+    
+    // === NAVIGATION ===
     {
-      // Step 3: Bottom Navigation
       target: '.bottom-nav',
-      title: '🧭 Easy Navigation',
-      content: 'Switch between categories: Nutrition, Sleep, Movement, and Mind - all your wellness needs in one place.',
+      title: '🧭 Your Wellness Pillars',
+      content: 'Navigate between the four pillars of holistic health: Nutrition, Sleep, Movement, and Mind.',
       position: 'top'
     },
+    
+    // === NUTRITION SECTION ===
     {
-      // Step 4: Dark Mode Button
+      target: '[data-view="nutritionView"]',
+      title: '🥗 Nutrition Hub',
+      content: 'Tap here to explore healthy eating! Track calories, discover superfoods, and get personalized meal suggestions.',
+      position: 'top',
+      action: () => { if (typeof App !== 'undefined') App.navigateTo('nutritionView'); }
+    },
+    {
+      target: '.calorie-tracker',
+      title: '📊 Calorie Tracker',
+      content: 'Log your meals and track daily calories. Search thousands of foods with accurate nutritional data.',
+      position: 'bottom'
+    },
+    
+    // === SLEEP SECTION ===
+    {
+      target: '[data-view="sleepView"]',
+      title: '😴 Sleep Sanctuary',
+      content: 'Tap here to improve your sleep! Track sleep quality, discover relaxation techniques, and build healthy bedtime habits.',
+      position: 'top',
+      action: () => { if (typeof App !== 'undefined') App.navigateTo('sleepView'); }
+    },
+    {
+      target: '.sleep-tracker',
+      title: '🌙 Sleep Journal',
+      content: 'Log your sleep hours and quality. See patterns and get tips for better rest.',
+      position: 'bottom'
+    },
+    
+    // === MOVEMENT SECTION ===
+    {
+      target: '[data-view="movementView"]',
+      title: '🏃 Movement Center',
+      content: 'Tap here to get moving! Track steps, follow workout routines, and stay active every day.',
+      position: 'top',
+      action: () => { if (typeof App !== 'undefined') App.navigateTo('movementView'); }
+    },
+    {
+      target: '.step-tracker',
+      title: '👟 Step Counter',
+      content: 'Track your daily steps and set goals. Every step counts towards a healthier you!',
+      position: 'bottom'
+    },
+    
+    // === MIND SECTION ===
+    {
+      target: '[data-view="mindView"]',
+      title: '🧘 Mindfulness Corner',
+      content: 'Tap here to nurture your mind! Practice gratitude, journal your thoughts, and find inner peace.',
+      position: 'top',
+      action: () => { if (typeof App !== 'undefined') App.navigateTo('mindView'); }
+    },
+    {
+      target: '.journal-section',
+      title: '📝 Gratitude Journal',
+      content: 'Write down what you\'re grateful for. Daily journaling boosts happiness and reduces stress.',
+      position: 'bottom'
+    },
+    
+    // === BACK TO HOME ===
+    {
+      target: '[data-view="homeView"]',
+      title: '🏠 Home Dashboard',
+      content: 'Return to your personalized dashboard anytime to see your progress and daily recommendations.',
+      position: 'top',
+      action: () => { if (typeof App !== 'undefined') App.navigateTo('homeView'); }
+    },
+    
+    // === HEADER FEATURES ===
+    {
       target: '#darkModeToggle',
       title: '🌙 Dark Mode',
-      content: 'Click here to enable dark mode - easier on your eyes, especially at night!',
+      content: 'Easy on the eyes! Toggle dark mode for a comfortable viewing experience, especially at night.',
       position: 'bottom'
     },
     {
-      // Step 5: User Menu
       target: '#userMenuBtn',
       title: '👤 Your Profile',
-      content: 'Access your stats, streak progress, and personal settings here.',
+      content: 'View your streak, track progress over time, and customize your wellness journey.',
       position: 'bottom'
     },
+    
+    // === FINISH ===
     {
-      // Step 6: Finish
       target: null,
-      title: '🎉 You\'re All Set!',
-      content: 'That\'s it! Now go explore and start your wellness journey. Your healthier self awaits!',
+      title: '🌟 You\'re Ready!',
+      content: 'That\'s everything! Start your wellness journey today. Remember: small daily habits lead to big transformations.',
       position: 'center'
     }
   ];
@@ -172,6 +244,20 @@ const AppTour = (function() {
     
     currentStep = stepIndex;
     
+    // אם יש פעולה (כמו ניווט לדף אחר) - בצע אותה קודם
+    if (step.action && typeof step.action === 'function') {
+      step.action();
+      // המתנה קצרה לסיום הניווט
+      setTimeout(() => continueShowStep(step, stepIndex), 400);
+    } else {
+      continueShowStep(step, stepIndex);
+    }
+  }
+  
+  /**
+   * ממשיך את הצגת הצעד אחרי ניווט (אם היה)
+   */
+  function continueShowStep(step, stepIndex) {
     // עדכון תוכן הטולטיפ
     tourTooltip.querySelector('.tour-title').textContent = step.title;
     tourTooltip.querySelector('.tour-content').textContent = step.content;
