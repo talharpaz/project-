@@ -540,6 +540,223 @@ body::before {
   margin: 0;
 }
 
+
+/* ===========================================
+   INTERACTIVE TOUR - סיור אינטראקטיבי
+   ===========================================
+   עיצוב לסיור מודרך למשתמשים חדשים
+   =========================================== */
+
+/* Overlay - רקע כהה מאחורי הסיור */
+.tour-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.tour-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Spotlight - החלון שמדגיש את האלמנט */
+.tour-spotlight {
+  position: absolute;
+  border-radius: 12px;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.75);
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+/* Tooltip - תיבת ההסבר */
+.tour-tooltip {
+  position: fixed;
+  z-index: 9999;
+  max-width: 340px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.9);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tour-tooltip.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.tour-tooltip[data-position="center"] {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.tour-tooltip[data-position="center"]:not(.visible) {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+/* תוכן הטולטיפ */
+.tour-tooltip-content {
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.tour-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.tour-content {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0 0 var(--space-md) 0;
+}
+
+/* נקודות התקדמות */
+.tour-progress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: var(--space-md);
+}
+
+.tour-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border);
+  transition: all 0.3s ease;
+}
+
+.tour-dot.active {
+  background: var(--color-accent-primary);
+  transform: scale(1.3);
+}
+
+/* כפתורי פעולה */
+.tour-actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.tour-btn {
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.tour-btn-skip {
+  background: transparent;
+  color: var(--color-text-tertiary);
+}
+
+.tour-btn-skip:hover {
+  color: var(--color-text-secondary);
+  background: var(--color-bg-secondary);
+}
+
+.tour-btn-next {
+  background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+  color: white;
+  box-shadow: 0 4px 15px var(--color-accent-glow);
+}
+
+.tour-btn-next:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--color-accent-glow);
+}
+
+/* חץ הטולטיפ */
+.tour-tooltip-arrow {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: white;
+  transform: rotate(45deg);
+  border-radius: 3px;
+}
+
+.tour-tooltip[data-position="bottom"] .tour-tooltip-arrow {
+  top: -8px;
+  left: 50%;
+  margin-left: -8px;
+}
+
+.tour-tooltip[data-position="top"] .tour-tooltip-arrow {
+  bottom: -8px;
+  left: 50%;
+  margin-left: -8px;
+}
+
+.tour-tooltip[data-position="left"] .tour-tooltip-arrow {
+  right: -8px;
+  top: 50%;
+  margin-top: -8px;
+}
+
+.tour-tooltip[data-position="right"] .tour-tooltip-arrow {
+  left: -8px;
+  top: 50%;
+  margin-top: -8px;
+}
+
+.tour-tooltip[data-position="center"] .tour-tooltip-arrow {
+  display: none;
+}
+
+/* אנימציית פולס על ה-Spotlight */
+@keyframes tourPulse {
+  0%, 100% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.75), 0 0 0 0 rgba(45, 90, 74, 0.4); }
+  50% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.75), 0 0 0 10px rgba(45, 90, 74, 0); }
+}
+
+.tour-spotlight {
+  animation: tourPulse 2s infinite;
+}
+
+/* רספונסיביות - מובייל */
+@media (max-width: 480px) {
+  .tour-tooltip {
+    max-width: calc(100vw - 32px);
+    margin: 0 16px;
+  }
+  
+  .tour-tooltip[data-position="center"] {
+    left: 50% !important;
+    width: calc(100% - 32px);
+  }
+  
+  .tour-tooltip-content {
+    padding: var(--space-md);
+  }
+  
+  .tour-title {
+    font-size: 1.1rem;
+  }
+  
+  .tour-content {
+    font-size: 0.9rem;
+  }
+}
+
 /* Daily Tip */
 .daily-tip-card {
   background: var(--color-bg-card);
