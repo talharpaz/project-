@@ -1,26 +1,78 @@
 <!DOCTYPE html>
+<!--
+  ==============================================
+  NaturalHealth PWA - קובץ HTML הראשי
+  ==============================================
+  
+  זהו הקובץ הראשי של האפליקציה.
+  הוא מכיל את כל המבנה של האתר.
+  
+  מבנה הקובץ:
+  1. head - מטא-דאטה, הגדרות PWA, קישורים ל-CSS
+  2. body:
+     - landingPage - עמוד הנחיתה (לפני התחברות)
+     - mainApp - האפליקציה הראשית (אחרי התחברות)
+     - authModal - חלון הרשמה/התחברות
+     - modalOverlay - חלון קופץ כללי
+     - toast - הודעות קופצות
+  
+  ==============================================
+-->
 <html lang="en">
 <head>
+  <!-- === הגדרות בסיסיות === -->
   <meta charset="UTF-8">
+  <!-- viewport: הגדרות תצוגה לנייד, מונע זום -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <!-- === הגדרות PWA === -->
+  <!-- צבע הדפדפן בנייד -->
   <meta name="theme-color" content="#2d5a4a">
+  <!-- תיאור האתר (מופיע בגוגל) -->
   <meta name="description" content="Your holistic wellness companion - personalized guidance for nutrition, sleep, movement, and mind">
+  <!-- הגדרות לאייפון - מאפשר התקנה כאפליקציה -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="NaturalHealth">
   
+  <!-- === כותרת הדף === -->
   <title>NaturalHealth - Your Wellness Journey Starts Here</title>
   
+  <!-- === קישורים חיצוניים === -->
+  <!-- manifest.json: הגדרות PWA (שם, אייקונים וכו') -->
   <link rel="manifest" href="manifest.json">
+  <!-- אייקון לאייפון -->
   <link rel="apple-touch-icon" href="assets/icons/icon.svg">
+  
+  <!-- === גופנים מ-Google Fonts === -->
+  <!-- preconnect: חיבור מוקדם לשרת לטעינה מהירה יותר -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- הגופנים: Playfair Display לכותרות, Inter לתוכן -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/landing.css">
+  
+  <!-- === קבצי CSS === -->
+  <link rel="stylesheet" href="css/styles.css">   <!-- עיצוב האפליקציה -->
+  <link rel="stylesheet" href="css/landing.css">  <!-- עיצוב עמוד הנחיתה -->
 </head>
 <body>
-  <!-- Landing Page -->
+  
+  <!-- ============================================
+       LANDING PAGE - עמוד הנחיתה
+       ============================================
+       
+       עמוד הנחיתה הוא העמוד הראשון שהמשתמש רואה.
+       הוא מציג את היתרונות של האפליקציה ומעודד הרשמה.
+       
+       מבנה:
+       - nav: ניווט עליון
+       - hero: אזור ראשי עם כותרת
+       - features: תכונות האפליקציה
+       - how-it-works: איך זה עובד
+       - testimonials: המלצות
+       - cta: קריאה לפעולה
+       - footer: כותרת תחתונה
+       ============================================ -->
   <div id="landingPage" class="landing-page">
     <!-- Navigation -->
     <nav class="landing-nav">

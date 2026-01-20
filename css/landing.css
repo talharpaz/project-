@@ -1,26 +1,47 @@
 /* ============================================
-   NaturalHealth - Landing Page & App Styles
-   BetterHelp-inspired modern wellness design
+   NaturalHealth - עמוד הנחיתה (Landing Page)
+   ============================================
+   
+   קובץ CSS זה מעצב את עמוד הנחיתה - העמוד הראשון
+   שהמשתמש רואה לפני ההתחברות.
+   
+   מבנה עמוד הנחיתה:
+   1. Hero Section - אזור ראשי עם כותרת וכפתור CTA
+   2. Features - 4 תכונות עיקריות של האפליקציה
+   3. How It Works - הסבר על תהליך השימוש
+   4. Testimonials - המלצות משתמשים
+   5. CTA Section - קריאה לפעולה סופית
+   6. Footer - כותרת תחתונה
+   
    ============================================ */
 
-/* Landing Page Specific Variables */
+
+/* ===========================================
+   משתנים ספציפיים לעמוד הנחיתה
+   =========================================== */
 :root {
-  /* Landing page specific colors */
-  --landing-primary: #2d5a4a;
-  --landing-primary-light: #3d7a66;
-  --landing-primary-dark: #1d3a32;
-  --landing-secondary: #e8f5e9;
-  --landing-accent: #8bc34a;
-  --landing-accent-light: #c5e1a5;
+  /* צבעים ייחודיים לעמוד הנחיתה */
+  --landing-primary: #2d5a4a;        /* ירוק כהה - ראשי */
+  --landing-primary-light: #3d7a66;  /* ירוק בהיר יותר */
+  --landing-primary-dark: #1d3a32;   /* ירוק כהה מאוד */
+  --landing-secondary: #e8f5e9;      /* רקע ירוק בהיר */
+  --landing-accent: #8bc34a;         /* ירוק בהיר להדגשה */
+  --landing-accent-light: #c5e1a5;   /* ירוק בהיר מאוד */
 }
 
+/* Utility class להסתרת אלמנטים */
 .hidden {
   display: none !important;
 }
 
-/* ============================================
-   LANDING PAGE
-   ============================================ */
+
+/* ===========================================
+   LANDING PAGE - מיכל עמוד הנחיתה
+   ===========================================
+   
+   .landing-page הוא המיכל הראשי של עמוד הנחיתה.
+   הוא מכיל את כל הסקשנים של העמוד.
+   =========================================== */
 
 .landing-page {
   min-height: 100vh;
@@ -29,7 +50,17 @@
   background: #fafbfa;
 }
 
-/* Landing Navigation */
+/* ===========================================
+   NAVIGATION - ניווט עליון
+   ===========================================
+   
+   הניווט בעמוד הנחיתה כולל:
+   - לוגו משמאל
+   - כפתורי Log In ו-Get Started מימין
+   
+   position: fixed = נשאר למעלה גם בגלילה
+   backdrop-filter: blur = אפקט זכוכית מטושטשת
+   =========================================== */
 .landing-nav {
   position: fixed;
   top: 0;

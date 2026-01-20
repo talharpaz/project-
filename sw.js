@@ -1,4 +1,34 @@
+/**
+ * ==============================================
+ * Service Worker - עובד שירות
+ * ==============================================
+ * 
+ * Service Worker הוא סקריפט שרץ ברקע, נפרד מהדף.
+ * הוא מאפשר לאפליקציה לעבוד גם בלי אינטרנט (אופליין).
+ * 
+ * איך זה עובד:
+ * 1. כשהאפליקציה נטענת, ה-SW נרשם ושומר קבצים ב-Cache
+ * 2. בפעם הבאה, הקבצים נטענים מה-Cache (מהיר יותר)
+ * 3. אם אין אינטרנט, האפליקציה עדיין עובדת מה-Cache
+ * 
+ * מחזור חיים של SW:
+ * 1. Install - התקנה ושמירת קבצים ב-Cache
+ * 2. Activate - הפעלה ומחיקת Cache ישן
+ * 3. Fetch - יירוט בקשות רשת והגשה מ-Cache
+ * 
+ * ==============================================
+ */
+
+
+// ===========================================
+// === הגדרות ===
+// ===========================================
+
+// שם ה-Cache - שינוי הגרסה יגרום לעדכון כל הקבצים
 const CACHE_NAME = 'naturalhealth-v1';
+
+// רשימת הקבצים לשמירה ב-Cache
+// אלה הקבצים שיעבדו גם אופליין
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -13,68 +43,92 @@ const ASSETS_TO_CACHE = [
   '/manifest.json'
 ];
 
-// Install event - cache assets
+
+// ===========================================
+// === אירוע Install - התקנה ===
+// ===========================================
+// קורה פעם אחת כש-SW נרשם לראשונה או מתעדכן
+
 self.addEventListener('install', (event) => {
+  // waitUntil: מחכה שהפעולה תסתיים לפני המשך
   event.waitUntil(
+    // פתיחת Cache חדש
     caches.open(CACHE_NAME)
       .then((cache) => {
         console.log('Caching app assets');
+        // שמירת כל הקבצים ב-Cache
         return cache.addAll(ASSETS_TO_CACHE);
       })
+      // skipWaiting: הפעלת ה-SW מיד (בלי לחכות לסגירת כל הטאבים)
       .then(() => self.skipWaiting())
   );
 });
 
-// Activate event - clean old caches
+
+// ===========================================
+// === אירוע Activate - הפעלה ===
+// ===========================================
+// קורה אחרי ההתקנה, או כשגרסה חדשה מופעלת
+
 self.addEventListener('activate', (event) => {
   event.waitUntil(
+    // קבלת שמות כל ה-Caches
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames
+          // סינון: רק Caches ישנים (לא הנוכחי)
           .filter((name) => name !== CACHE_NAME)
+          // מחיקת ה-Caches הישנים
           .map((name) => caches.delete(name))
       );
-    }).then(() => self.clients.claim())
+    })
+    // claim: השתלטות על כל הדפים הפתוחים
+    .then(() => self.clients.claim())
   );
 });
 
-// Fetch event - serve from cache, fallback to network
+
+// ===========================================
+// === אירוע Fetch - יירוט בקשות ===
+// ===========================================
+// קורה בכל בקשת רשת (טעינת קובץ, תמונה, API וכו')
+
 self.addEventListener('fetch', (event) => {
   event.respondWith(
+    // חיפוש ב-Cache
     caches.match(event.request)
       .then((cachedResponse) => {
+        // אם נמצא ב-Cache, החזר אותו
         if (cachedResponse) {
           return cachedResponse;
         }
+        
+        // אם לא נמצא, פנה לרשת
         return fetch(event.request)
           .then((response) => {
-            // Don't cache non-successful responses
+            // אל תשמור תשובות שגויות
             if (!response || response.status !== 200 || response.type !== 'basic') {
               return response;
             }
-            // Clone and cache the response
+            
+            // שכפול התשובה (כי אפשר לקרוא תשובה רק פעם אחת)
             const responseToCache = response.clone();
+            
+            // שמירה ב-Cache לפעם הבאה
             caches.open(CACHE_NAME)
               .then((cache) => {
                 cache.put(event.request, responseToCache);
               });
+            
             return response;
           });
       })
       .catch(() => {
-        // Return offline fallback for navigation requests
+        // אם הכל נכשל ואין אינטרנט
+        // החזר את עמוד הבית מה-Cache (לניווט)
         if (event.request.mode === 'navigate') {
           return caches.match('/index.html');
         }
       })
   );
 });
-
-
-
-
-
-
-
-
-

@@ -1,22 +1,54 @@
 /**
- * NaturalHealth PWA - AI Wellness Recommendations
- * Provides SPECIFIC, contextual holistic suggestions based on user's exact concern
- * Each recommendation includes WHY it helps the specific condition
+ * ==============================================
+ * NaturalHealth PWA - מנוע ההמלצות (AI)
+ * ==============================================
+ * 
+ * זהו הקובץ שמטפל ב"בינה מלאכותית" של האפליקציה.
+ * בפועל, זו לא AI אמיתית אלא מערכת מבוססת כללים (Rule-Based).
+ * 
+ * איך זה עובד:
+ * 1. המשתמש מקליד תיאור של הבעיה שלו
+ * 2. המערכת מחפשת מילות מפתח (patterns) בטקסט
+ * 3. נמצאת התאמה למצב בריאותי מסוים (condition)
+ * 4. מוצגות המלצות מותאמות לאותו מצב
+ * 
+ * יתרון: פשוט, מהיר, עובד אופליין, לא עולה כסף
+ * חיסרון: מוגבל למצבים שהוגדרו מראש
  */
+
+
+// ===========================================
+// === IIFE - Immediately Invoked Function Expression ===
+// ===========================================
+// תבנית שמייצרת מודול עם פרטיות.
+// כל מה שבפנים פרטי, רק מה שב-return נחשף החוצה.
 
 const WellnessAI = (function() {
   
-  // Comprehensive condition database with specific recommendations
+
+  // ===========================================
+  // === מאגר המצבים הבריאותיים ===
+  // ===========================================
+  // זהו "המוח" של המערכת - מאגר של כל המצבים עם ההמלצות.
+  // לכל מצב יש:
+  // - patterns: מילות מפתח לזיהוי
+  // - title: כותרת המצב
+  // - recommendations: רשימת המלצות (tip + why)
+
   const conditionsDB = {
-    // SLEEP ISSUES
+    
+    // === בעיות שינה ===
+    
+    // קושי להירדם
     'cant_sleep': {
+      // מילות מפתח שהמערכת מחפשת בקלט המשתמש
       patterns: ['cant sleep', "can't sleep", 'cannot sleep', 'trouble sleeping', 'hard to sleep', 'difficulty sleeping', 'struggling to fall asleep', 'falling asleep', 'fall asleep', 'takes forever to sleep', 'lying awake'],
-      title: 'Difficulty Falling Asleep',
+      title: 'Difficulty Falling Asleep',  // כותרת שמוצגת למשתמש
       recommendations: [
         {
-          pillar: 'nutrition',
-          tip: 'Drink chamomile tea 30-60 minutes before bed',
-          why: 'Chamomile contains apigenin, a compound that binds to GABA receptors in the brain, producing a calming effect similar to anti-anxiety medications but naturally. Studies show it reduces the time it takes to fall asleep by an average of 15 minutes.'
+          pillar: 'nutrition',  // איזה עמוד (nutrition/sleep/movement/mind)
+          tip: 'Drink chamomile tea 30-60 minutes before bed',  // ההמלצה
+          why: 'Chamomile contains apigenin, a compound that binds to GABA receptors in the brain, producing a calming effect similar to anti-anxiety medications but naturally. Studies show it reduces the time it takes to fall asleep by an average of 15 minutes.'  // ההסבר המדעי
         },
         {
           pillar: 'nutrition',
@@ -56,6 +88,7 @@ const WellnessAI = (function() {
       ]
     },
 
+    // נדודי שינה והתעוררויות בלילה
     'insomnia': {
       patterns: ['insomnia', 'awake at night', 'wake up at night', 'waking up', 'cant stay asleep', "can't stay asleep", 'middle of night', 'keep waking', '3am', '4am'],
       title: 'Insomnia & Night Waking',
@@ -93,7 +126,9 @@ const WellnessAI = (function() {
       ]
     },
 
-    // DIGESTIVE ISSUES
+    // === בעיות עיכול ===
+
+    // שלשול
     'diarrhea': {
       patterns: ['diarrhea', 'loose stool', 'loose stools', 'runny stomach', 'upset stomach', 'watery stool', 'bathroom a lot', 'frequent bowel'],
       title: 'Diarrhea & Loose Stools',
@@ -136,6 +171,7 @@ const WellnessAI = (function() {
       ]
     },
 
+    // עצירות
     'constipation': {
       patterns: ['constipation', 'constipated', 'cant poop', "can't poop", 'hard stool', 'difficulty pooping', 'not regular', 'bowel movement', 'haven\'t pooped', 'blocked up'],
       title: 'Constipation',
@@ -178,6 +214,7 @@ const WellnessAI = (function() {
       ]
     },
 
+    // נפיחות וגזים
     'bloating': {
       patterns: ['bloated', 'bloating', 'gassy', 'gas', 'stomach bloat', 'belly bloat', 'feeling full', 'distended', 'puffy stomach'],
       title: 'Bloating & Gas',
@@ -220,6 +257,7 @@ const WellnessAI = (function() {
       ]
     },
 
+    // בחילות
     'nausea': {
       patterns: ['nausea', 'nauseous', 'feel sick', 'queasy', 'want to vomit', 'throw up', 'motion sick', 'morning sickness', 'sick to stomach'],
       title: 'Nausea',
@@ -262,7 +300,9 @@ const WellnessAI = (function() {
       ]
     },
 
-    // ENERGY & FATIGUE
+    // === אנרגיה ועייפות ===
+
+    // עייפות
     'fatigue': {
       patterns: ['tired', 'fatigue', 'exhausted', 'no energy', 'low energy', 'drained', 'sluggish', 'lethargic', 'always tired', 'worn out', 'wiped out'],
       title: 'Fatigue & Low Energy',
@@ -310,7 +350,9 @@ const WellnessAI = (function() {
       ]
     },
 
-    // STRESS & ANXIETY
+    // === לחץ וחרדה ===
+
+    // חרדה
     'anxiety': {
       patterns: ['anxious', 'anxiety', 'worried', 'worrying', 'nervous', 'panic', 'panicking', 'racing thoughts', 'overwhelmed', 'cant relax', "can't relax"],
       title: 'Anxiety & Worry',
@@ -358,6 +400,7 @@ const WellnessAI = (function() {
       ]
     },
 
+    // לחץ
     'stress': {
       patterns: ['stressed', 'stress', 'pressure', 'tension', 'tense', 'overwhelm', 'burnout', 'burned out', 'too much', 'overworked'],
       title: 'Stress & Tension',
@@ -405,7 +448,8 @@ const WellnessAI = (function() {
       ]
     },
 
-    // HEADACHE & PAIN
+    // === כאב ראש ===
+
     'headache': {
       patterns: ['headache', 'head hurts', 'migraine', 'head pain', 'temple pain', 'head ache', 'throbbing head', 'pounding head'],
       title: 'Headache & Migraine',
@@ -453,7 +497,8 @@ const WellnessAI = (function() {
       ]
     },
 
-    // MOOD
+    // === מצב רוח ודיכאון ===
+
     'depression': {
       patterns: ['depressed', 'depression', 'sad', 'down', 'hopeless', 'unmotivated', 'empty', 'no motivation', 'feeling low', 'lost interest', 'numb'],
       title: 'Low Mood & Depression',
@@ -501,7 +546,8 @@ const WellnessAI = (function() {
       ]
     },
 
-    // FOCUS & CONCENTRATION
+    // === ריכוז ===
+
     'focus': {
       patterns: ['focus', 'concentrate', 'concentration', 'distracted', 'brain fog', 'foggy', 'cant think', "can't think", 'scatter', 'attention', 'unfocused'],
       title: 'Focus & Concentration Issues',
@@ -549,7 +595,8 @@ const WellnessAI = (function() {
       ]
     },
 
-    // MUSCLE & BODY PAIN
+    // === כאבי שרירים ===
+
     'muscle_soreness': {
       patterns: ['muscle sore', 'muscles sore', 'sore muscles', 'muscle pain', 'body ache', 'aching muscles', 'muscle ache', 'stiff muscles', 'muscle tension', 'tight muscles', 'doms', 'workout soreness', 'muscle hurt', 'muscles hurt', 'hurts muscle', 'my muscles', 'body hurts', 'muscles are', 'muscle is'],
       title: 'Muscle Soreness & Body Aches',
@@ -597,7 +644,9 @@ const WellnessAI = (function() {
       ]
     },
 
-    // MENSTRUAL & HORMONAL ISSUES
+    // === בעיות מחזור ===
+
+    // היעדר מחזור
     'period_loss': {
       patterns: ['lost period', 'lost my period', 'no period', 'missing period', 'period stopped', 'amenorrhea', 'irregular period', 'skipped period', 'late period', 'period missing', "haven't had period", 'period is late', 'period late', 'missed period', 'miss my period', 'period gone', 'without period', "don't have period", "didn't get period", "didn't get my period", 'no menstrual', 'stopped menstruating'],
       title: 'Missing or Irregular Period (Amenorrhea)',
@@ -645,6 +694,7 @@ const WellnessAI = (function() {
       ]
     },
 
+    // כאבי מחזור
     'period_pain': {
       patterns: ['period pain', 'menstrual cramps', 'cramps', 'painful period', 'period cramp', 'dysmenorrhea', 'pms', 'menstrual pain'],
       title: 'Menstrual Cramps & Period Pain',
@@ -692,7 +742,8 @@ const WellnessAI = (function() {
       ]
     },
 
-    // SKIN ISSUES
+    // === בעיות עור ===
+
     'acne': {
       patterns: ['acne', 'pimples', 'breakout', 'skin breaking out', 'zits', 'spots on face', 'oily skin', 'blemishes'],
       title: 'Acne & Skin Breakouts',
@@ -740,7 +791,8 @@ const WellnessAI = (function() {
       ]
     },
 
-    // IMMUNE SYSTEM
+    // === מערכת חיסון ===
+
     'immunity': {
       patterns: ['sick often', 'weak immune', 'immunity', 'getting sick', 'catch cold', 'always sick', 'low immunity', 'immune system'],
       title: 'Weak Immunity / Getting Sick Often',
@@ -788,7 +840,8 @@ const WellnessAI = (function() {
       ]
     },
 
-    // BACK PAIN
+    // === כאבי גב ===
+
     'back_pain': {
       patterns: ['back pain', 'lower back', 'back hurts', 'back ache', 'backache', 'spine pain', 'back sore'],
       title: 'Back Pain',
@@ -836,7 +889,8 @@ const WellnessAI = (function() {
       ]
     },
 
-    // WEIGHT MANAGEMENT
+    // === ירידה במשקל ===
+
     'weight_loss': {
       patterns: ['lose weight', 'weight loss', 'losing weight', 'fat loss', 'overweight', 'diet', 'slim down', 'burn fat'],
       title: 'Healthy Weight Management',
@@ -884,7 +938,8 @@ const WellnessAI = (function() {
       ]
     },
 
-    // HAIR LOSS
+    // === נשירת שיער ===
+
     'hair_loss': {
       patterns: ['hair loss', 'losing hair', 'hair falling', 'thinning hair', 'bald', 'hair shedding', 'hair fall'],
       title: 'Hair Loss & Thinning',
@@ -932,9 +987,11 @@ const WellnessAI = (function() {
       ]
     },
 
-    // DEFAULT / GENERAL WELLNESS
+    // === המלצות כלליות (ברירת מחדל) ===
+    // מוצג כשלא נמצאה התאמה ספציפית
+
     'general': {
-      patterns: [],
+      patterns: [],  // אין מילות מפתח - זו ברירת מחדל
       title: 'General Wellness',
       recommendations: [
         {
@@ -971,20 +1028,36 @@ const WellnessAI = (function() {
     }
   };
 
-  // DOM elements
+
+  // ===========================================
+  // === משתנים פרטיים ===
+  // ===========================================
+  
+  // אובייקט לשמירת אלמנטים מה-DOM
   let elements = {};
 
-  // Initialize
+
+  // ===========================================
+  // === פונקציית אתחול ===
+  // ===========================================
+
+  /**
+   * מאתחל את המודול כשהדף נטען
+   * שומר רפרנסים לאלמנטים ומחבר מאזינים
+   */
   function init() {
-    elements.input = document.getElementById('wellnessInput');
-    elements.submitBtn = document.getElementById('wellnessSubmitBtn');
-    elements.response = document.getElementById('aiResponse');
-    elements.responseContent = document.getElementById('aiResponseContent');
+    // שמירת רפרנסים לאלמנטים
+    elements.input = document.getElementById('wellnessInput');        // שדה הקלט
+    elements.submitBtn = document.getElementById('wellnessSubmitBtn'); // כפתור שליחה
+    elements.response = document.getElementById('aiResponse');        // מיכל התשובה
+    elements.responseContent = document.getElementById('aiResponseContent'); // תוכן התשובה
     
+    // הוספת מאזין לכפתור השליחה
     if (elements.submitBtn) {
       elements.submitBtn.addEventListener('click', handleSubmit);
     }
     
+    // הוספת מאזין ללחיצת Cmd/Ctrl+Enter
     if (elements.input) {
       elements.input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
@@ -994,24 +1067,38 @@ const WellnessAI = (function() {
     }
   }
 
-  // Handle submission
+
+  // ===========================================
+  // === טיפול בשליחת הקלט ===
+  // ===========================================
+
+  /**
+   * מטפל בשליחת השאלה מהמשתמש
+   * מראה טעינה, מנתח את הקלט, מציג תוצאות
+   */
   function handleSubmit() {
+    // קבלת הקלט ונרמול (lowercase + הסרת רווחים)
     const input = elements.input.value.trim().toLowerCase();
     
+    // בדיקה שיש קלט
     if (!input) {
       App.showToast('Please describe what you\'re experiencing');
       return;
     }
     
-    // Show loading
+    // הצגת מצב טעינה (UX טוב)
     elements.submitBtn.disabled = true;
     elements.submitBtn.innerHTML = '<span class="loading">Analyzing your concern...</span>';
     
-    // Simulate brief processing time for UX
+    // סימולציה של עיבוד (800ms) - נותן תחושה של "חשיבה"
     setTimeout(() => {
+      // ניתוח הקלט ומציאת המצב המתאים
       const result = analyzeInput(input);
+      
+      // הצגת ההמלצות
       displayRecommendations(result, input);
       
+      // החזרת הכפתור למצב רגיל
       elements.submitBtn.disabled = false;
       elements.submitBtn.innerHTML = `
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1022,31 +1109,45 @@ const WellnessAI = (function() {
     }, 800);
   }
 
-  // Analyze input and find the best matching condition
+
+  // ===========================================
+  // === ניתוח הקלט - המנוע המרכזי ===
+  // ===========================================
+
+  /**
+   * מנתח את הקלט ומוצא את המצב הבריאותי המתאים ביותר
+   * משתמש בחיפוש מילות מפתח ומחשב ציון התאמה
+   * 
+   * @param {string} input - הקלט מהמשתמש
+   * @returns {Object} - אובייקט המצב עם ההמלצות
+   */
   function analyzeInput(input) {
-    let bestMatch = null;
-    let highestScore = 0;
+    let bestMatch = null;   // המצב עם הציון הגבוה ביותר
+    let highestScore = 0;   // הציון הגבוה ביותר
     
-    // Normalize input: lowercase and remove extra spaces
+    // נרמול הקלט
     const normalizedInput = input.toLowerCase().trim();
     
-    // Extract meaningful words (3+ characters) for word-based matching
+    // חילוץ מילים משמעותיות (3+ תווים)
     const inputWords = normalizedInput.split(/\s+/).filter(w => w.length >= 3);
     
-    // Search through all conditions
+    // מעבר על כל המצבים במאגר
     for (const [key, condition] of Object.entries(conditionsDB)) {
+      // דילוג על הקטגוריה הכללית
       if (key === 'general') continue;
       
-      let score = 0;
+      let score = 0;  // ציון התאמה למצב הנוכחי
       
+      // --- שלב 1: התאמת patterns ישירה ---
+      // חיפוש ביטויים מלאים מרשימת ה-patterns
       for (const pattern of condition.patterns) {
-        // Direct pattern matching (exact phrase in input)
         if (normalizedInput.includes(pattern)) {
-          score += pattern.length * 5; // High weight for exact matches
+          score += pattern.length * 5;  // ביטוי ארוך יותר = יותר ספציפי = יותר נקודות
         }
       }
       
-      // Keyword detection - this is the primary matching method
+      // --- שלב 2: התאמת מילות מפתח ---
+      // מיפוי מילות מפתח לכל מצב
       const keywordMap = {
         'cant_sleep': ['cant sleep', "can't sleep", 'trouble sleep', 'hard to sleep', 'difficulty sleep', 'fall asleep', 'falling asleep'],
         'insomnia': ['wake up', 'waking up', 'awake at night', 'middle of the night', 'middle of night', 'cant stay asleep', "can't stay asleep", 'keep waking'],
@@ -1070,15 +1171,16 @@ const WellnessAI = (function() {
         'focus': ['focus', 'concentrate', 'concentration', 'distracted', 'brain fog', 'cant think']
       };
       
+      // בדיקת מילות מפתח
       const keywords = keywordMap[key] || [];
       for (const keyword of keywords) {
         if (normalizedInput.includes(keyword)) {
-          // Longer keyword phrases get higher scores (more specific)
-          score += keyword.length * 3;
+          score += keyword.length * 3;  // ניקוד לפי אורך המילה
         }
       }
       
-      // Single word matching for key terms (exact word match only)
+      // --- שלב 3: התאמת מילים בודדות ---
+      // מיפוי מילים בודדות לכל מצב
       const singleWordMap = {
         'insomnia': ['wake', 'waking', 'awake', 'night'],
         'cant_sleep': ['sleep', 'sleeping', 'asleep', 'insomnia'],
@@ -1102,22 +1204,23 @@ const WellnessAI = (function() {
         'focus': ['focus', 'concentrate', 'distracted', 'foggy']
       };
       
+      // בדיקת מילים בודדות עם גבולות מילים (word boundaries)
       const singleWords = singleWordMap[key] || [];
       for (const word of singleWords) {
-        // Check if the exact word appears in input (with word boundaries)
-        const regex = new RegExp('\\b' + word + '\\b', 'i');
+        const regex = new RegExp('\\b' + word + '\\b', 'i');  // \b = גבול מילה
         if (regex.test(normalizedInput)) {
           score += 10;
         }
       }
       
+      // עדכון ההתאמה הטובה ביותר
       if (score > highestScore) {
         highestScore = score;
         bestMatch = condition;
       }
     }
     
-    // Fall back to general if no match found
+    // אם לא נמצאה התאמה, החזר את הקטגוריה הכללית
     if (!bestMatch || highestScore === 0) {
       bestMatch = conditionsDB.general;
     }
@@ -1125,15 +1228,28 @@ const WellnessAI = (function() {
     return bestMatch;
   }
 
-  // Display recommendations with "Why?" buttons
+
+  // ===========================================
+  // === הצגת ההמלצות ===
+  // ===========================================
+
+  /**
+   * מציג את ההמלצות על המסך בצורה מעוצבת
+   * מקבץ לפי עמודים (pillars) ומוסיף כפתורי "Why?"
+   * 
+   * @param {Object} condition - המצב שנבחר עם ההמלצות
+   * @param {string} originalInput - הקלט המקורי מהמשתמש
+   */
   function displayRecommendations(condition, originalInput) {
+    // צבעים לכל עמוד
     const pillarColors = {
-      nutrition: '#6bc46b',
-      sleep: '#7c9fd4',
-      movement: '#f5a962',
-      mind: '#c49bd4'
+      nutrition: '#6bc46b',  // ירוק
+      sleep: '#7c9fd4',      // כחול
+      movement: '#f5a962',   // כתום
+      mind: '#c49bd4'        // סגול
     };
     
+    // שמות לכל עמוד
     const pillarNames = {
       nutrition: 'Nutrition',
       sleep: 'Sleep',
@@ -1141,6 +1257,7 @@ const WellnessAI = (function() {
       mind: 'Mind & Emotions'
     };
     
+    // אייקונים לכל עמוד (SVG)
     const pillarIcons = {
       nutrition: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
       sleep: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
@@ -1148,21 +1265,24 @@ const WellnessAI = (function() {
       mind: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'
     };
     
-    // Group recommendations by pillar
+    // קיבוץ ההמלצות לפי עמוד
     const grouped = { nutrition: [], sleep: [], movement: [], mind: [] };
     condition.recommendations.forEach(rec => {
       grouped[rec.pillar].push(rec);
     });
     
+    // בניית ה-HTML
     let html = `
       <p style="margin-bottom: var(--space-lg); font-size: 0.9375rem; color: var(--color-text-secondary);">
         Based on your concern about <strong style="color: var(--color-text-primary);">"${condition.title}"</strong>, here are personalized holistic recommendations:
       </p>
     `;
     
+    // מעבר על כל עמוד
     for (const [pillar, recs] of Object.entries(grouped)) {
-      if (recs.length === 0) continue;
+      if (recs.length === 0) continue;  // דילוג אם אין המלצות
       
+      // כותרת העמוד
       html += `
         <div style="margin-bottom: var(--space-xl);">
           <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: var(--space-md); color: ${pillarColors[pillar]};">
@@ -1172,8 +1292,11 @@ const WellnessAI = (function() {
           <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
       `;
       
+      // כל המלצה בעמוד
       recs.forEach((rec, idx) => {
+        // יצירת ID ייחודי לאלמנט ה-"Why"
         const whyId = `why-${pillar}-${idx}-${Date.now()}`;
+        
         html += `
           <div style="background: var(--color-bg-input); padding: var(--space-md); border-radius: var(--radius-md); border-left: 3px solid ${pillarColors[pillar]};">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-sm);">
@@ -1199,16 +1322,27 @@ const WellnessAI = (function() {
       html += '</div></div>';
     }
     
+    // הכנסת ה-HTML לדף
     elements.responseContent.innerHTML = html;
     elements.response.classList.add('active');
     
-    // Scroll to response
+    // גלילה אוטומטית לתשובה
     setTimeout(() => {
       elements.response.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
   }
 
-  // Toggle "Why?" explanation visibility
+
+  // ===========================================
+  // === פונקציות עזר ===
+  // ===========================================
+
+  /**
+   * החלפת נראות של הסבר "Why?"
+   * נקרא כשלוחצים על כפתור Why
+   * 
+   * @param {string} id - ה-ID של אלמנט ההסבר
+   */
   function toggleWhy(id) {
     const el = document.getElementById(id);
     if (el) {
@@ -1217,7 +1351,99 @@ const WellnessAI = (function() {
     }
   }
 
+
+  // ===========================================
+  // === חיבור ל-OpenAI API (אופציונלי) ===
+  // ===========================================
+  // פונקציה זו שולחת בקשה ל-AI אמיתי דרך השרת שלנו.
+  // המפתח (API Key) נשמר בשרת בצורה מאובטחת.
+  
+  /**
+   * שולח שאלה ל-OpenAI ומקבל תשובה
+   * 
+   * @param {string} userMessage - ההודעה מהמשתמש
+   * @returns {Promise<string>} - התשובה מה-AI
+   */
+  async function askRealAI(userMessage) {
+    try {
+      // שליחת בקשה לשרת שלנו (לא ישירות ל-OpenAI!)
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: userMessage
+        })
+      });
+
+      // בדיקת שגיאות
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to get AI response');
+      }
+
+      // קבלת התשובה
+      const data = await response.json();
+      return data.message;
+
+    } catch (error) {
+      console.error('Real AI Error:', error);
+      // אם יש שגיאה, נחזור למערכת הכללים
+      return null;
+    }
+  }
+
+  /**
+   * פונקציה משולבת - מנסה AI אמיתי, נופלת למערכת כללים
+   * 
+   * @param {string} input - הקלט מהמשתמש
+   * @param {boolean} useRealAI - האם להשתמש ב-AI אמיתי
+   * @returns {Promise<Object>} - התוצאה
+   */
+  async function getSmartRecommendation(input, useRealAI = false) {
+    // אם ביקשו AI אמיתי
+    if (useRealAI) {
+      const aiResponse = await askRealAI(input);
+      
+      if (aiResponse) {
+        // יש תשובה מ-AI אמיתי
+        return {
+          source: 'openai',
+          title: 'AI Wellness Recommendation',
+          message: aiResponse
+        };
+      }
+    }
+    
+    // ברירת מחדל: מערכת הכללים
+    const condition = analyzeInput(input);
+    return {
+      source: 'rules',
+      title: condition.title,
+      recommendations: condition.recommendations
+    };
+  }
+
+
+  // ===========================================
+  // === הפעלת המודול ===
+  // ===========================================
+  
+  // אתחול כשהדף נטען
   document.addEventListener('DOMContentLoaded', init);
 
-  return { init, toggleWhy };
-})();
+
+  // ===========================================
+  // === חשיפת פונקציות ציבוריות ===
+  // ===========================================
+  // רק מה שב-return נגיש מחוץ למודול
+  
+  return { 
+    init,                    // פונקציית אתחול (לשימוש ידני אם צריך)
+    toggleWhy,               // פונקציית החלפת נראות (נקראת מה-HTML)
+    askRealAI,               // שאילת AI אמיתי (OpenAI)
+    getSmartRecommendation   // המלצה חכמה (מנסה AI, נופל לכללים)
+  };
+  
+})();  // הפעלה מיידית של הפונקציה

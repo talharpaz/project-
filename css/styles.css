@@ -1,60 +1,98 @@
 /* ============================================
-   NaturalHealth PWA - Holistic Wellness Design
-   Clean, calming white & soft green aesthetic
+   NaturalHealth PWA - קובץ העיצוב הראשי
+   ============================================
+   
+   קובץ CSS זה מכיל את כל הסגנונות של האפליקציה.
+   
+   מבנה הקובץ:
+   1. CSS Variables - משתני צבע, גופן, מרווחים
+   2. Reset & Base - איפוס ברירות מחדל
+   3. Header - כותרת האפליקציה
+   4. Navigation - תפריט ניווט תחתון
+   5. Views - מסכי האפליקציה
+   6. Cards - כרטיסים
+   7. Forms - טפסים וקלטים
+   8. Buttons - כפתורים
+   9. Modal - חלונות קופצים
+   10. Toast - הודעות קופצות
+   11. Utilities - כלי עזר
+   
    ============================================ */
 
-/* CSS Variables - Light, Natural Theme */
+
+/* ===========================================
+   CSS VARIABLES - משתני עיצוב
+   ===========================================
+   
+   משתני CSS (Custom Properties) מאפשרים לנו להגדיר
+   ערכים במקום אחד ולהשתמש בהם בכל מקום.
+   
+   למה זה טוב?
+   - שינוי צבע אחד משנה את כל האתר
+   - עקביות בעיצוב
+   - קל לתחזוקה
+   
+   שימוש: var(--color-accent-primary)
+   =========================================== */
+
 :root {
-  /* Colors - Fresh, clean palette */
-  --color-bg-primary: #fafcfa;
+  /* === צבעי רקע === */
+  /* צבעים בהירים וטבעיים ליצירת תחושה רגועה */
+  --color-bg-primary: #fafcfa;  /* רקע ראשי - כמעט לבן עם נגיעה ירוקה */
   --color-bg-secondary: #ffffff;
   --color-bg-card: #ffffff;
   --color-bg-card-hover: #f5f9f5;
   --color-bg-input: #f7faf7;
   --color-bg-elevated: #eef5ee;
   
-  /* Greens - Soft, natural tones */
-  --color-accent-primary: #5cb85c;
-  --color-accent-secondary: #4a9f4a;
-  --color-accent-light: #e8f5e8;
-  --color-accent-lighter: #f0f8f0;
-  --color-accent-glow: rgba(92, 184, 92, 0.1);
+  /* === צבעי הדגשה (ירוקים) === */
+  /* הירוק הוא הצבע המרכזי של האפליקציה - מסמל טבע ובריאות */
+  --color-accent-primary: #2d5a4a;      /* ירוק כהה - צבע ראשי */
+  --color-accent-secondary: #1e4035;    /* ירוק כהה יותר - צבע משני */
+  --color-accent-light: #d4e6df;        /* ירוק בהיר - לרקעים */
+  --color-accent-lighter: #e8f2ed;      /* ירוק בהיר מאוד */
+  --color-accent-glow: rgba(45, 90, 74, 0.15);  /* זוהר שקוף */
   
-  /* Pillar Colors */
-  --color-nutrition: #6bc46b;
-  --color-sleep: #7c9fd4;
-  --color-movement: #f5a962;
-  --color-mind: #c49bd4;
+  /* === צבעי 4 העמודים (Pillars) === */
+  /* לכל עמוד בריאות יש צבע ייחודי משלו */
+  --color-nutrition: #3d7a5a;   /* תזונה - ירוק */
+  --color-sleep: #7c9fd4;       /* שינה - כחול */
+  --color-movement: #f5a962;    /* תנועה - כתום */
+  --color-mind: #c49bd4;        /* נפש - סגול */
   
-  /* Text */
-  --color-text-primary: #2d3a2d;
-  --color-text-secondary: #5a6b5a;
-  --color-text-muted: #8a9a8a;
-  --color-text-light: #a8b8a8;
+  /* === צבעי טקסט === */
+  /* היררכיה של צבעי טקסט - מכהה לבהיר */
+  --color-text-primary: #2d3a2d;     /* כותרות וטקסט חשוב */
+  --color-text-secondary: #5a6b5a;   /* תוכן רגיל */
+  --color-text-muted: #8a9a8a;       /* טקסט משני */
+  --color-text-light: #a8b8a8;       /* טקסט מאוד בהיר */
   
   /* Borders */
   --color-border: #e5ebe5;
   --color-border-light: #f0f4f0;
   
-  /* Typography */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* === גופנים (Typography) === */
+  /* שני גופנים: אחד לכותרות (יפה, אלגנטי) ואחד לתוכן (קריא) */
+  --font-display: 'Cormorant Garamond', Georgia, serif;  /* גופן כותרות - סריף */
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;  /* גופן תוכן - sans-serif */
   
-  /* Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
+  /* === מרווחים (Spacing) === */
+  /* סקאלה של מרווחים עקביים - תמיד כפולות של 0.25rem */
+  --space-xs: 0.25rem;   /* 4px - מרווח זעיר */
+  --space-sm: 0.5rem;    /* 8px - מרווח קטן */
+  --space-md: 1rem;      /* 16px - מרווח בינוני (ברירת מחדל) */
+  --space-lg: 1.5rem;    /* 24px - מרווח גדול */
+  --space-xl: 2rem;      /* 32px - מרווח גדול מאוד */
+  --space-2xl: 3rem;     /* 48px - מרווח ענק */
+  --space-3xl: 4rem;     /* 64px - מרווח מקסימלי */
   
-  /* Border Radius */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --radius-full: 9999px;
+  /* === עיגול פינות (Border Radius) === */
+  /* פינות מעוגלות נותנות תחושה רכה וידידותית */
+  --radius-sm: 8px;      /* עיגול קטן - לכפתורים קטנים */
+  --radius-md: 12px;     /* עיגול בינוני - לכרטיסים */
+  --radius-lg: 16px;     /* עיגול גדול */
+  --radius-xl: 24px;     /* עיגול גדול מאוד */
+  --radius-full: 9999px; /* עיגול מלא - ליצירת עיגולים */
   
   /* Shadows - Soft and subtle */
   --shadow-sm: 0 1px 3px rgba(45, 58, 45, 0.05);
@@ -73,27 +111,37 @@
   --safe-area-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* Reset & Base */
+/* ===========================================
+   RESET & BASE - איפוס ובסיס
+   ===========================================
+   
+   CSS Reset מאפס את ברירות המחדל של הדפדפן
+   כדי שהעיצוב יהיה עקבי בכל הדפדפנים.
+   =========================================== */
+
+/* איפוס: הסרת margin, padding, ושימוש ב-border-box */
 *, *::before, *::after {
-  box-sizing: border-box;
+  box-sizing: border-box;  /* גודל האלמנט כולל padding ו-border */
   margin: 0;
   padding: 0;
 }
 
+/* הגדרת גודל גופן בסיסי */
 html {
-  font-size: 16px;
-  -webkit-text-size-adjust: 100%;
+  font-size: 16px;  /* 1rem = 16px */
+  -webkit-text-size-adjust: 100%;  /* מניעת שינוי גודל אוטומטי באייפון */
 }
 
+/* הגדרות בסיסיות ל-body */
 body {
-  font-family: var(--font-body);
-  background: var(--color-bg-primary);
-  color: var(--color-text-primary);
-  line-height: 1.6;
-  min-height: 100vh;
-  min-height: 100dvh;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-body);           /* גופן התוכן */
+  background: var(--color-bg-primary);     /* צבע רקע */
+  color: var(--color-text-primary);        /* צבע טקסט */
+  line-height: 1.6;                        /* גובה שורה */
+  min-height: 100vh;                       /* גובה מינימלי */
+  min-height: 100dvh;                      /* גובה דינמי (לנייד) */
+  overflow-x: hidden;                      /* הסתרת גלילה אופקית */
+  -webkit-font-smoothing: antialiased;     /* החלקת גופנים */
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -122,9 +170,17 @@ body::before {
   overflow-x: hidden;
 }
 
-/* ============================================
-   Header - Minimal & Clean
-   ============================================ */
+/* ===========================================
+   HEADER - כותרת האפליקציה
+   ===========================================
+   
+   ה-Header קבוע בראש המסך (fixed) ומכיל:
+   - לוגו משמאל
+   - כפתורי פעולה מימין (מדינה, dark mode, משתמש)
+   
+   position: fixed = נשאר במקום גם בגלילה
+   backdrop-filter: blur = טשטוש הרקע מאחורי
+   =========================================== */
 .app-header {
   position: fixed;
   top: 0;
@@ -1121,7 +1177,7 @@ body::before {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(45, 58, 45, 0.3);
+  background: rgba(41, 116, 41, 0.3);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   display: flex;
