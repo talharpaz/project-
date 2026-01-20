@@ -21,48 +21,48 @@ const AppTour = (function() {
   // === הגדרות הסיור ===
   // ===========================================
   
-  // צעדי הסיור - כל צעד מדגיש אלמנט ומסביר אותו
+  // Tour steps - each step highlights an element and explains it
   const tourSteps = [
     {
-      // צעד 1: ברוכים הבאים
-      target: null, // אין אלמנט ספציפי - מסך פתיחה
-      title: '👋 ברוכים הבאים ל-NaturalHealth!',
-      content: 'בואו נעשה סיור קצר באפליקציה כדי שתכירו את כל הפיצ\'רים המגניבים.',
+      // Step 1: Welcome
+      target: null, // No specific element - welcome screen
+      title: '👋 Welcome to NaturalHealth!',
+      content: 'Let\'s take a quick tour to discover all the amazing features of this app.',
       position: 'center'
     },
     {
-      // צעד 2: תיבת הקלט של ה-AI
+      // Step 2: AI Input Box
       target: '#wellnessInput',
-      title: '🤖 ייעוץ בריאות חכם',
-      content: 'ספרו לנו מה מפריע לכם - כאב ראש, עייפות, סטרס - ונקבל המלצות מותאמות אישית! אפשר לכתוב בעברית או באנגלית.',
+      title: '🤖 Smart Health Advisor',
+      content: 'Tell us what\'s bothering you - headache, fatigue, stress - and get personalized recommendations powered by AI!',
       position: 'bottom'
     },
     {
-      // צעד 3: ניווט תחתון
+      // Step 3: Bottom Navigation
       target: '.bottom-nav',
-      title: '🧭 ניווט קל',
-      content: 'כאן תוכלו לעבור בין הקטגוריות: תזונה, שינה, תנועה ומיינד.',
+      title: '🧭 Easy Navigation',
+      content: 'Switch between categories: Nutrition, Sleep, Movement, and Mind - all your wellness needs in one place.',
       position: 'top'
     },
     {
-      // צעד 4: כפתור Dark Mode
+      // Step 4: Dark Mode Button
       target: '#darkModeToggle',
-      title: '🌙 מצב לילה',
-      content: 'לחצו כאן כדי להפעיל מצב כהה - נוח יותר לעיניים בלילה!',
+      title: '🌙 Dark Mode',
+      content: 'Click here to enable dark mode - easier on your eyes, especially at night!',
       position: 'bottom'
     },
     {
-      // צעד 5: תפריט משתמש
+      // Step 5: User Menu
       target: '#userMenuBtn',
-      title: '👤 הפרופיל שלכם',
-      content: 'כאן תוכלו לראות את הסטטיסטיקות שלכם, רצף הימים, והגדרות אישיות.',
+      title: '👤 Your Profile',
+      content: 'Access your stats, streak progress, and personal settings here.',
       position: 'bottom'
     },
     {
-      // צעד 6: סיום
+      // Step 6: Finish
       target: null,
-      title: '🎉 מוכנים להתחיל!',
-      content: 'זהו! עכשיו אתם מכירים את האפליקציה. התחילו לחקור ולשפר את הבריאות שלכם!',
+      title: '🎉 You\'re All Set!',
+      content: 'That\'s it! Now go explore and start your wellness journey. Your healthier self awaits!',
       position: 'center'
     }
   ];
@@ -129,8 +129,8 @@ const AppTour = (function() {
           <div class="tour-dots"></div>
         </div>
         <div class="tour-actions">
-          <button class="tour-btn tour-btn-skip">דלג</button>
-          <button class="tour-btn tour-btn-next">הבא →</button>
+          <button class="tour-btn tour-btn-skip">Skip</button>
+          <button class="tour-btn tour-btn-next">Next →</button>
         </div>
       </div>
     `;
@@ -182,9 +182,9 @@ const AppTour = (function() {
     // עדכון כפתור (אם זה הצעד האחרון)
     const nextBtn = tourTooltip.querySelector('.tour-btn-next');
     if (stepIndex === tourSteps.length - 1) {
-      nextBtn.textContent = '🎉 סיום';
+      nextBtn.textContent = '🎉 Finish';
     } else {
-      nextBtn.textContent = 'הבא →';
+      nextBtn.textContent = 'Next →';
     }
     
     // הדגשת האלמנט המתאים
@@ -393,9 +393,9 @@ const AppTour = (function() {
     // החזרת גלילה
     document.body.style.overflow = '';
     
-    // הודעה למשתמש
+    // Show completion message
     if (typeof App !== 'undefined' && App.showToast) {
-      App.showToast('🎉 מעולה! עכשיו אתם מכירים את האפליקציה');
+      App.showToast('🎉 Awesome! You\'re ready to explore the app');
     }
   }
   
